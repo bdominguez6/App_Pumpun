@@ -12,6 +12,4 @@ class BookList {
   final String subtitle;
   List<Book> books;
   Color color;
-
-  
 }

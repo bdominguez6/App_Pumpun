@@ -1,4 +1,4 @@
-import 'package:app/models/list.dart';
+import 'package:app/models/booklist.dart';
 import 'package:flutter/material.dart';
 
 class BookListItem extends StatelessWidget {
@@ -10,7 +10,14 @@ class BookListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     currentBookCount = booklist.books.length;
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(9),
+        border: Border.all(
+          color: booklist.color,
+          width: 3,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
         child: Row(
@@ -21,11 +28,11 @@ class BookListItem extends StatelessWidget {
               children: [
                 Text(
                   booklist.title,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
                   booklist.subtitle,
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey),
                 ),
               ],
             ),

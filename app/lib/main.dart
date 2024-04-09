@@ -1,4 +1,4 @@
-import 'package:app/widgets/booklists_screen.dart';
+import 'package:app/widgets/booklist/booklists_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

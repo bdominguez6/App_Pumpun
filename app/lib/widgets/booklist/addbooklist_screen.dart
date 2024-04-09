@@ -1,7 +1,7 @@
 import 'package:app/models/booklist.dart';
 import 'package:flutter/material.dart';
 
-import "package:flutter_hsvcolor_picker/flutter_hsvcolor_picker.dart";
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class AddBooklistScreen extends StatefulWidget {
   const AddBooklistScreen({super.key, required this.onAddBooklist});
@@ -68,22 +68,16 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                 _subtitle = value!; // Save the entered email
               },
             ),
-
-            //color picker for the user
-            // flutter pub add flutter_hsvcolor_picker
-            //
             SizedBox(height: 20.0),
+            //color picker for the user
+            // flutter pub add flutter_colorpicker
             Text(
               'Choose a Color',
             ),
+            SizedBox(height: 20.0),
             ColorPicker(
-              pickerOrientation: PickerOrientation.inherit,
-              color: Colors.blue,
-              onChanged: (value) {
-                _color = value;
-              },
-            ),
-
+                pickerColor: _color,
+                onColorChanged: (color) => {_color = color}),
             SizedBox(height: 20.0),
             ElevatedButton(
               onPressed:

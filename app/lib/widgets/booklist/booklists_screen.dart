@@ -37,7 +37,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
 
   //test list
   final List<BookList> testList = [
-    const BookList(
+    BookList(
         title: 'Read',
         subtitle: 'books you\'ve already read',
         books: [
@@ -55,7 +55,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
         title: 'Reading',
         subtitle: 'books you\'re currently reading',
         color: Colors.yellow),
-    const BookList(
+    BookList(
         title: 'Read',
         subtitle: 'books you\'ve already read',
         books: [

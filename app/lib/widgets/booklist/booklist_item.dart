@@ -12,12 +12,19 @@ class BookListItem extends StatelessWidget {
     currentBookCount = booklist.books.length;
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(9),
-        border: Border.all(
-          color: booklist.color,
-          width: 3,
-        ),
-      ),
+          color: Color.fromARGB(255, 49, 47, 47),
+          borderRadius: BorderRadius.circular(9),
+          /*border: Border.all(
+            color: booklist.color,
+            width: 3,
+          ),*/
+          boxShadow: [
+            BoxShadow(
+              color: booklist.color,
+              blurRadius: 8,
+              offset: Offset(0, 3),
+            ),
+          ]),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
         child: Row(

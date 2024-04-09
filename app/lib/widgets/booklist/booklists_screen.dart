@@ -244,8 +244,9 @@ class _BookListsScreenState extends State<BookListsScreen> {
       //show the lists
       //if there are less than 5 list we include the + button after the lists presentation
       body: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
-          Expanded(
+          Flexible(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(vertical: 8),
               shrinkWrap: true,
@@ -261,12 +262,30 @@ class _BookListsScreenState extends State<BookListsScreen> {
               ),
             ),
           ),
-          if (testList.length < 5)
+          if (testList.length < 6)
             Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(40),
                 child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Create more lists'),
+                    const Text(
+                      'Create more lists',
+                      style: TextStyle(
+                        color: Colors.amber,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        _openBooklistCreationModal();
+                      },
+                      child: const Text(
+                        'Create more lists',
+                        style: TextStyle(
+                          color: Colors.amber,
+                        ),
+                      ),
+                    ),
                     IconButton(
                       onPressed: () {
                         _openBooklistCreationModal();

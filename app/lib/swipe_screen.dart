@@ -6,7 +6,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 class SwipeScreen extends StatelessWidget {
   const SwipeScreen({super.key});
-
+// TODO: si no funciona el swipe del video, hacerlo con Dismissible -> DismissDirection.horizontal, etc...
   @override
   Widget build(BuildContext context) {
     return Scaffold(

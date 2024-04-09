@@ -1,17 +1,13 @@
 import 'package:app/models/book.dart';
-import 'package:flutter/material.dart';
 
 class BookList {
-  BookList({
+  const BookList({
     required this.title,
     required this.subtitle,
-    required this.color,
-  }) : books = [];
+    this.books = const [],
+  });
 
   final String title;
   final String subtitle;
-  List<Book> books;
-  Color color;
-
-  
+  final List<Book> books;
 }

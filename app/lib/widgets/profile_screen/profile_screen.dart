@@ -1,9 +1,9 @@
 import 'package:app/models/booklist.dart';
-import 'package:app/widgets/profile/styled_text.dart';
-import 'package:app/widgets/profile/user_data.dart';
+import 'package:app/widgets/profile_screen/styled_text.dart';
+import 'package:app/widgets/profile_screen/user_data.dart';
 import 'package:flutter/material.dart';
 
-import 'package:app/widgets/profile/last_liked.dart';
+import 'package:app/widgets/profile_screen/last_liked.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 

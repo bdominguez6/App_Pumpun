@@ -15,6 +15,8 @@ class User {
   final String name;
   final String image;
   List<BookList> defaultBookLists = [
+
+
     BookList(title: "Liked books", subtitle: "Books that you liked.", color: Colors.green),
     BookList(title: "Read books", subtitle: "Books that you already read.", color: Colors.red),
     BookList(title: "Reading", subtitle: "Books that you are reading.", color: Colors.yellow),

@@ -1,5 +1,5 @@
-import 'package:app/widgets/profile/styled_text.dart';
-import 'package:app/widgets/profile/user_portrait.dart';
+import 'package:app/widgets/profile_screen/styled_text.dart';
+import 'package:app/widgets/profile_screen/user_portrait.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/user.dart';

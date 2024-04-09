@@ -1,5 +1,5 @@
 import 'package:app/models/book.dart';
-import 'package:app/widgets/profile/styled_text.dart';
+import 'package:app/widgets/profile_screen/styled_text.dart';
 import 'package:flutter/material.dart';
 
 class BookPortrait extends StatelessWidget {

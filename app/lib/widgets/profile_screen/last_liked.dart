@@ -1,6 +1,6 @@
 import 'package:app/models/user.dart';
-import 'package:app/widgets/profile/book_portrait.dart';
-import 'package:app/widgets/profile/styled_text.dart';
+import 'package:app/widgets/profile_screen/book_portrait.dart';
+import 'package:app/widgets/profile_screen/styled_text.dart';
 import 'package:flutter/material.dart';
 
 class LastLiked extends StatelessWidget {

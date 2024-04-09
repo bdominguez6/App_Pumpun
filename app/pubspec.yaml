@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.1
   google_nav_bar: ^5.0.6
+  flutter_colorpicker: ^1.0.3
+
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +62,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+
     - assets/images/quiz-logo.png
     - assets/images/manzana.jpg
     - assets/images/portada1.jpg

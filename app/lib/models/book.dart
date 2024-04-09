@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Book {
+
   Book(
       {required this.title,
       required this.cover,
@@ -9,6 +10,7 @@ class Book {
       required this.genre,
       this.amazonLink = '',
       required this.record}) {
+
     icon = switch (record) {
       Record.none => 0xe1f0, // do_not_touch
       Record.liked => 0xe25c, // favorite_border

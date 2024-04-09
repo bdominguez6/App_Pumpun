@@ -15,22 +15,12 @@ class User {
   final String name;
   final String image;
   List<BookList> defaultBookLists = [
-    const BookList(
-        title: "Liked books",
-        subtitle: "Books that you liked.",
-        color: Colors.green),
-    const BookList(
-        title: "Read books",
-        subtitle: "Books that you already read.",
-        color: Colors.yellow),
-    const BookList(
-        title: "Reading",
-        subtitle: "Books that you are reading.",
-        color: Colors.white),
-    const BookList(
-        title: "Records",
-        subtitle: "records",
-        color: Color.fromARGB(0, 0, 0, 0)),
+
+
+    BookList(title: "Liked books", subtitle: "Books that you liked.", color: Colors.green),
+    BookList(title: "Read books", subtitle: "Books that you already read.", color: Colors.red),
+    BookList(title: "Reading", subtitle: "Books that you are reading.", color: Colors.yellow),
+    BookList(title: "Records", subtitle: "records", color: Colors.transparent),
   ];
   List<BookList> createdBookLists = [];
 }

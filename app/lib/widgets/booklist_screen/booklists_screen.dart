@@ -178,6 +178,9 @@ class _BookListsScreenState extends State<BookListsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       //appBar start
@@ -196,6 +199,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
             ' Your book-lists',
             style: GoogleFonts.lato(
               color: Colors.white,
+              //fontSize: screenHeight * 0.0298,
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
@@ -217,11 +221,10 @@ class _BookListsScreenState extends State<BookListsScreen> {
         children: [
           Flexible(
             child: ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 8),
+              padding: EdgeInsets.symmetric(vertical: screenHeight * 0.01),
               shrinkWrap: true,
               itemCount: testList.length,
               itemBuilder: (context, index) => GestureDetector(
-                //TODO edit the onTap to open book details
                 onTap: () {
                   Navigator.push(
                       context,
@@ -231,8 +234,9 @@ class _BookListsScreenState extends State<BookListsScreen> {
                               )));
                 },
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.009),
                   child: BookListItem(booklist: testList[index]),
                 ),
               ),
@@ -240,7 +244,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
           ),
           if (testList.length < 6)
             Padding(
-              padding: EdgeInsets.all(40),
+              padding: EdgeInsets.all(screenWidth * 0.06),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -9,11 +9,13 @@ class BookListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     currentBookCount = booklist.books.length;
     return Container(
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 49, 47, 47),
-          borderRadius: BorderRadius.circular(9),
+          color: const Color.fromARGB(255, 49, 47, 47),
+          borderRadius: BorderRadius.circular(screenWidth * 0.04),
           /*border: Border.all(
             color: booklist.color,
             width: 3,
@@ -22,11 +24,12 @@ class BookListItem extends StatelessWidget {
             BoxShadow(
               color: booklist.color,
               blurRadius: 8,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ]),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
+        padding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.055, vertical: screenHeight * 0.023),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 class SwipeScreen extends StatelessWidget {
   const SwipeScreen({super.key});
@@ -21,11 +19,11 @@ class SwipeScreen extends StatelessWidget {
           color: Colors.black,
           child: Text(
             'Discover Books',
-            style: GoogleFonts.lato(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+            // style: TextStyle(
+            //   color: Colors.white,
+            //   fontSize: 24,
+            //   fontWeight: FontWeight.bold,
+            // ),
           ),
         ),
         titleSpacing: 0,

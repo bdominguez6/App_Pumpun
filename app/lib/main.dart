@@ -6,7 +6,10 @@ void main() {
     MaterialApp(
       title: 'Mi Aplicación',
       themeMode: ThemeMode.dark, // Modo de tema oscuro
-      darkTheme: ThemeData.dark(), // Configuración del tema oscuro
+      theme: ThemeData(
+        fontFamily: 'Lato', // Fuente general
+        colorScheme: ColorScheme.dark(), // Paleta de colores general
+      ),
       home: MyHomePageController(),
     ),
   );

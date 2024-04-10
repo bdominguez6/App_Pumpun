@@ -1,10 +1,7 @@
 import 'package:app/widgets/booklist_screen/addbooklist_screen.dart';
-import 'package:app/models/book.dart';
 import 'package:app/models/booklist.dart';
-import 'package:app/models/user.dart';
 import 'package:app/widgets/booklist_screen/booklist_item.dart';
 import 'package:app/widgets/booklist_screen/booklistdetails_screen.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class BookListsScreen extends StatefulWidget {
@@ -194,11 +191,11 @@ class _BookListsScreenState extends State<BookListsScreen> {
           color: Colors.black,
           child: Text(
             ' Your book-lists',
-            style: GoogleFonts.lato(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+            // style: GoogleFonts.lato(
+            //   color: Colors.white,
+            //   fontSize: 24,
+            //   fontWeight: FontWeight.bold,
+            // ),
           ),
         ),
         actions: [

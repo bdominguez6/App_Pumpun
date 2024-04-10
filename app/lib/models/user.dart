@@ -15,6 +15,7 @@ class User {
   final String name;
   final String image;
   List<BookList> defaultBookLists = [
+    BookList(title: "Records", subtitle: "records", color: Colors.transparent),
     BookList(
         title: "Liked books",
         subtitle: "Books that you liked.",
@@ -27,7 +28,6 @@ class User {
         title: "Reading",
         subtitle: "Books that you are reading.",
         color: Colors.yellow),
-    BookList(title: "Records", subtitle: "records", color: Colors.transparent),
   ];
   List<BookList> createdBookLists = [];
 }

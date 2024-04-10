@@ -4,8 +4,6 @@ import 'package:app/widgets/profile_screen/user_data.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app/widgets/profile_screen/last_liked.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -31,11 +29,11 @@ class ProfileScreen extends StatelessWidget {
           color: Colors.black,
           child: Text(
             'Discover Books',
-            style: GoogleFonts.lato(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+            // style: GoogleFonts.lato(
+            //   color: Colors.white,
+            //   fontSize: 24,
+            //   fontWeight: FontWeight.bold,
+            // ),
           ),
         ),
         titleSpacing: 0,

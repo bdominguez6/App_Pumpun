@@ -51,7 +51,7 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                 right: screenWidth * 0.12,
                 top: screenHeight * 0.01),
             child: Column(
-              children: <Widget>[
+              children: [
                 TextFormField(
                   decoration: InputDecoration(
                       labelText: 'List title'), // Label for the name field
@@ -80,18 +80,18 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                     _subtitle = value!; // Save the entered email
                   },
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: screenHeight * 0.02),
                 //color picker for the user
                 // flutter pub add flutter_colorpicker
                 Text(
                   'Choose a Color',
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: screenHeight * 0.02),
                 ColorPicker(
                     pickerColor: _color,
                     onColorChanged: (color) => {_color = color}),
-                SizedBox(height: 20.0),
-                ElevatedButton(
+                SizedBox(height: screenHeight * 0.01),
+                TextButton(
                   onPressed:
                       _submitForm, // Call the _submitForm function when the button is pressed
                   child: Text('Create'), // Text on the button

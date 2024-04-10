@@ -14,10 +14,9 @@ class AddBooklistScreen extends StatefulWidget {
 }
 
 class _AddBooklistScreen extends State<AddBooklistScreen> {
-  final GlobalKey<FormState> _formKey =
-      GlobalKey<FormState>(); // A key for managing the form
-  String _title = ''; // Variable to store the entered name
-  String _subtitle = ''; // Variable to store the entered email
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String _title = '';
+  String _subtitle = '';
   Color _color = Colors.white;
 
   void _submitForm() {
@@ -53,31 +52,28 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(
-                      labelText: 'List title'), // Label for the name field
+                  decoration: InputDecoration(labelText: 'List title'),
                   validator: (value) {
-                    // Validation function for the name field
                     if (value!.isEmpty) {
-                      return 'Please enter the list name.'; // Return an error message if the name is empty
+                      return 'Please enter the list name.';
                     }
-                    return null; // Return null if the name is valid
+                    return null;
                   },
                   onSaved: (value) {
-                    _title = value!; // Save the entered name
+                    _title = value!;
                   },
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Subtitle'),
                   validator: (value) {
-                    // Validation function for the field
                     if (value!.isEmpty) {
-                      return 'Please enter the subtitle.'; // Return an error message if the email is empty
+                      return 'Please enter the subtitle.';
                     }
-                    // You can add more complex validation logic here
-                    return null; // Return null if the email is valid
+
+                    return null;
                   },
                   onSaved: (value) {
-                    _subtitle = value!; // Save the entered email
+                    _subtitle = value!;
                   },
                 ),
                 SizedBox(height: screenHeight * 0.02),
@@ -92,9 +88,8 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                     onColorChanged: (color) => {_color = color}),
                 SizedBox(height: screenHeight * 0.01),
                 TextButton(
-                  onPressed:
-                      _submitForm, // Call the _submitForm function when the button is pressed
-                  child: Text('Create'), // Text on the button
+                  onPressed: _submitForm,
+                  child: Text('Create'),
                 ),
               ],
             ),

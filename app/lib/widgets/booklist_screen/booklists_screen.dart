@@ -1,3 +1,4 @@
+import 'package:app/data/dummy/dummy_bryan.dart';
 import 'package:app/widgets/booklist_screen/addbooklist_screen.dart';
 import 'package:app/models/book.dart';
 import 'package:app/models/booklist.dart';
@@ -8,7 +9,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class BookListsScreen extends StatefulWidget {
-  const BookListsScreen({super.key});
+  BookListsScreen({super.key});
+
+  User? user = DummyBryan().userDummy;
 
   @override
   State<BookListsScreen> createState() {
@@ -28,11 +31,12 @@ class _BookListsScreenState extends State<BookListsScreen> {
   void _addBookList(BookList bookList) {
     setState(() {
       testList.add(bookList);
-      //   widget.user.createdBookLists.add(bookList);
+      widget.user?.createdBookLists.add(bookList);
     });
   }
 
   //test list
+
   final List<BookList> testList = [
     BookList(
         title: 'Read',
@@ -50,126 +54,6 @@ class _BookListsScreenState extends State<BookListsScreen> {
         title: 'Wants to read',
         subtitle: 'books you\'re planning to read',
         color: Color.fromARGB(255, 190, 214, 101)),
-    /*BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: Colors.blue),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: const Color.fromARGB(255, 157, 194, 224)),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: Color.fromARGB(255, 68, 62, 3)),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: Color.fromARGB(255, 58, 196, 70)),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: const Color.fromARGB(255, 124, 132, 139)),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: Colors.blue),*/
   ];
 
   var currentIndex = 0;

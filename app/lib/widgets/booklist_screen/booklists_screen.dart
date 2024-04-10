@@ -3,7 +3,6 @@ import 'package:app/models/book.dart';
 import 'package:app/models/booklist.dart';
 import 'package:app/models/user.dart';
 import 'package:app/widgets/booklist_screen/booklist_item.dart';
-import 'package:app/widgets/common/bottom_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -257,10 +256,6 @@ class _BookListsScreenState extends State<BookListsScreen> {
             )
         ],
       ),
-
-      //bottom menu
-
-      bottomNavigationBar: const BottonMenu(),
     );
   }
 }

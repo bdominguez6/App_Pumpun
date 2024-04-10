@@ -1,4 +1,3 @@
-
 import 'package:app/data/dummy/dummy_bryan.dart';
 import 'package:app/widgets/profile_screen/styled_text.dart';
 import 'package:app/widgets/profile_screen/user_data.dart';
@@ -7,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:app/widgets/profile_screen/last_liked.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -42,29 +40,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         titleSpacing: 0,
       ),
-      bottomNavigationBar: Container(
-        color: Colors.black,
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
-          child: GNav(
-            color: Colors.white,
-            activeColor: Colors.amber,
-            tabBackgroundColor: Color.fromARGB(255, 56, 55, 55),
-            gap: 9,
-            padding: EdgeInsets.all(16),
-            //ontabchange
-            tabs: [
-              GButton(icon: Icons.swap_calls, text: 'Swipe'),
-              GButton(
-                icon: Icons.search,
-                text: 'Search',
-              ),
-              GButton(icon: Icons.bookmark, text: 'Lists'),
-              GButton(icon: Icons.person_2, text: 'Profile')
-            ],
-          ),
-        ),
-      ),
+      // 
       body: Column(
         children: [
           SizedBox(height: screenHeight / 40),

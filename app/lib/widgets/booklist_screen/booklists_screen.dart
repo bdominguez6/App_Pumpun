@@ -3,6 +3,7 @@ import 'package:app/models/book.dart';
 import 'package:app/models/booklist.dart';
 import 'package:app/models/user.dart';
 import 'package:app/widgets/booklist_screen/booklist_item.dart';
+import 'package:app/widgets/booklist_screen/booklistdetails_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -16,21 +17,18 @@ class BookListsScreen extends StatefulWidget {
 }
 
 class _BookListsScreenState extends State<BookListsScreen> {
-  void _openBooklistCreationModal() {
-    showModalBottomSheet(
-      isScrollControlled: true,
-      context: context,
-      isDismissible: false,
-      builder: (context) => AddBooklistScreen(
-        onAddBooklist: _addBookList,
-      ),
-    );
+  void _openBooklistScreen() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                AddBooklistScreen(onAddBooklist: _addBookList)));
   }
 
   void _addBookList(BookList bookList) {
     setState(() {
       testList.add(bookList);
-      //user.bookLists.add(bookList);
+      //   widget.user.createdBookLists.add(bookList);
     });
   }
 
@@ -206,7 +204,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                _openBooklistCreationModal();
+                _openBooklistScreen();
               },
               icon: Icon(Icons.add))
         ],
@@ -224,7 +222,14 @@ class _BookListsScreenState extends State<BookListsScreen> {
               itemCount: testList.length,
               itemBuilder: (context, index) => GestureDetector(
                 //TODO edit the onTap to open book details
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BookListDetailsScreen(
+                                currentList: testList[index],
+                              )));
+                },
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -242,7 +247,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
                 children: [
                   TextButton(
                     onPressed: () {
-                      _openBooklistCreationModal();
+                      _openBooklistScreen();
                     },
                     child: const Text(
                       'Create more lists',

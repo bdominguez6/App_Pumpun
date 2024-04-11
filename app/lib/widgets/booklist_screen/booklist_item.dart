@@ -1,6 +1,7 @@
 import 'package:app/models/booklist.dart';
 import 'package:flutter/material.dart';
 
+//item LIST (list of lists)
 class BookListItem extends StatelessWidget {
   BookListItem({super.key, required this.booklist});
 
@@ -24,7 +25,7 @@ class BookListItem extends StatelessWidget {
             BoxShadow(
               color: booklist.color,
               blurRadius: 8,
-              offset: const Offset(0, 3),
+              offset: const Offset(3, 5),
             ),
           ]),
       child: Padding(

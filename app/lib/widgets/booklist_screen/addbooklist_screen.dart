@@ -86,6 +86,7 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                 SizedBox(height: screenHeight * 0.02),
                 ColorPicker(
                     pickerColor: _color,
+
                     onColorChanged: (color) => {_color = color}),
                 SizedBox(height: screenHeight * 0.01),
                 TextButton(

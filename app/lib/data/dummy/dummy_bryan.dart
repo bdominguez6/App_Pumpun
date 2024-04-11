@@ -13,7 +13,7 @@ class DummyBryan {
 
     book1 = Book(
       title: "Juego de tronos: Canción de Fuego y Hielo",
-      cover: "assets/images/portada1.jpg",
+      cover: "assets/images/covers/portada1.jpg",
       author: ['George R.R. Martin', 'George R.R. Martin'],
       genre: [Genre.horror, Genre.suspense],
       record: Record.liked,
@@ -22,7 +22,7 @@ class DummyBryan {
     );
     book2 = Book(
       title: "El Quijote",
-      cover: "assets/images/portada2.jpeg",
+      cover: "assets/images/covers/portada2.jpeg",
       author: [
         'Miguel de Cervantes',
         'Miguel de Cervantes',
@@ -35,10 +35,10 @@ class DummyBryan {
     );
     // Method which fill booklist records on user class
     for (int index = 0; index < 4; index++) {
-      userDummy!.defaultBookLists[0].books.insert(0, book1);
-      userDummy!.defaultBookLists[0].books.insert(0, book2);
+      userDummy!.defaultBookLists[1].books.insert(0, book1);
+      userDummy!.defaultBookLists[1].books.insert(0, book2);
     }
-    userDummy!.defaultBookLists[0].books.insert(0, book1);
+    userDummy!.defaultBookLists[1].books.insert(0, book1);
   }
 
   User? userDummy;

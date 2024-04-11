@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         titleSpacing: 0,
       ),
-      // 
+      //
       body: Column(
         children: [
           SizedBox(height: screenHeight / 40),

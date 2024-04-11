@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ScreenConstants{
-  const ScreenConstants();
   static double width = WidgetsBinding
       .instance.platformDispatcher.views.first.physicalSize.width /
       WidgetsBinding.instance.platformDispatcher.views.first.devicePixelRatio;

@@ -18,8 +18,8 @@ class DummyBrais {
 
     book1 = Book(
       title: "Juego de tronos: Canción de Fuego y Hielo",
-      cover: "assets/images/portada1.jpg",
-      author: ['George R.R. Martin', 'George R.R. Martin'],
+      cover: "assets/images/covers/portada1.jpg",
+      authorList: ['George R.R. Martin', 'George R.R. Martin'],
       genre: [Genre.horror, Genre.suspense],
       record: Record.liked,
       description:
@@ -27,8 +27,8 @@ class DummyBrais {
     );
     book2 = Book(
       title: "El Quijote",
-      cover: "assets/images/portada2.jpeg",
-      author: [
+      cover: "assets/images/covers/portada2.jpeg",
+      authorList: [
         'Miguel de Cervantes',
         'Miguel de Cervantes',
         'Miguel de Cervantes'
@@ -40,8 +40,8 @@ class DummyBrais {
     );
     book3 = Book(
       title: "Orgullo y Prejuicio",
-      cover: "assets/images/portada2.jpeg",
-      author: [
+      cover: "assets/images/covers/portada2.jpeg",
+      authorList: [
         'Jane Austen',
       ],
       genre: [Genre.romance, Genre.horror],
@@ -51,8 +51,8 @@ class DummyBrais {
     );
     book4 = Book(
       title: "1984",
-      cover: "assets/images/portada2.jpeg",
-      author: ['George Orwell'],
+      cover: "assets/images/covers/portada2.jpeg",
+      authorList: ['George Orwell'],
       genre: [Genre.romance, Genre.horror],
       record: Record.disliked,
       description:

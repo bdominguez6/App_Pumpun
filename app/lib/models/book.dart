@@ -5,7 +5,7 @@ class Book {
       {required this.title,
       required this.cover,
       required this.description,
-      required this.author,
+      required this.authorList,
       required this.genre,
       this.amazonLink = '',
       required this.record}) {
@@ -22,11 +22,25 @@ class Book {
   final String description;
   final String amazonLink;
   final List<Genre> genre;
-  final List<String> author;
+  final List<String> authorList;
   final Record record;
   // para usarlo: IconData(ICON, fontFamily: 'MaterialIcons');
   int icon = 0xe1f0; // Temporal, debería ser una ruta
-}
+
+  /// Method that returns the genders as a string
+  String get getGenders {
+    List<String> genreList = [];
+
+    for (var genreAux in genre) {
+      String genderSplited = genreAux.toString().split('.').last;
+      String genderCapitalized = genderSplited.substring(0, 1).toUpperCase() +
+          genderSplited.substring(1);
+
+      genreList.add(genderCapitalized);
+    }
+    return genreList.join(', ');
+  }
+} // note: End class
 
 enum Record {
   none,

@@ -93,16 +93,17 @@ class InteractiveImage extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: Text(
                       book.title,
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                     ),
                   ),
+
+                  /// Horizontal divider line
                   SizedBox(
-                    width: screenWidth *
-                        0.6, // Establece el ancho al máximo disponible
+                    width: screenWidth * 0.6,
                     child: const Divider(
-                      color: Colors.grey, // Color de la línea
-                      thickness: 1, // Grosor de la línea
-                      height: 20, // Altura de la línea
+                      color: Color.fromARGB(100, 0, 0, 0),
+                      thickness: 1,
+                      height: 20,
                     ),
                   ),
 
@@ -112,16 +113,17 @@ class InteractiveImage extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: Row(
                       children: [
-                        Container(
-                          child: const Text(
-                            'Author',
-                            style: TextStyle(color: Colors.black),
+                        Expanded(
+                          child: Text(
+                            book.authorList.join(', '),
+                            style: const TextStyle(color: Colors.black),
                           ),
                         ),
-                        Container(
-                          child: const Text(
-                            'Genre',
-                            style: TextStyle(color: Colors.black),
+                        Expanded(
+                          child: Text(
+                            // book.genre[0].name,
+                            book.getGenders,
+                            style: const TextStyle(color: Colors.black),
                           ),
                         ),
                       ],

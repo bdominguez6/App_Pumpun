@@ -66,7 +66,7 @@ class InteractiveImage extends StatelessWidget {
                 ),
               ),
               padding: EdgeInsets.fromLTRB(0, screenHeight * 0.02, 0, 0),
-              width: screenWidth * 0.75,
+              width: screenWidth * 0.65,
               // height: screenHeight * 0.60,
               child: Image.asset(book.cover),
             ),
@@ -82,7 +82,7 @@ class InteractiveImage extends StatelessWidget {
                       20.0), // Radio de borde en la esquina inferior derecha
                 ),
               ),
-              width: screenWidth * 0.75,
+              width: screenWidth * 0.65,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

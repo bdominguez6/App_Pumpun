@@ -47,17 +47,17 @@ class SwipeScreen extends StatelessWidget {
           ),
 
           /// Button section
-          // Container(
-          //   width: screenWidth * 0.92,
-          //   height: screenHeight * 0.10,
-          //   // margin: EdgeInsets.fromLTRB(0, screenHeight * 0.06, 0, 0),
-          //   decoration: BoxDecoration(
-          //     color: Color.fromARGB(255, 191, 0, 255),
-          //     borderRadius: BorderRadius.circular(20),
-          //   ),
-          //   child: Text('Button container'),
-          //   alignment: Alignment.center,
-          // ),
+          Container(
+            width: screenWidth * 0.92,
+            height: screenHeight * 0.10,
+            // margin: EdgeInsets.fromLTRB(0, screenHeight * 0.06, 0, 0),
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 191, 0, 255),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Text('Button container'),
+            alignment: Alignment.center,
+          ),
         ],
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:app/widgets/common/myhomepage_controller.dart';
+import 'package:app/controllers/common/myhomepage_controller.dart';
 import 'package:flutter/material.dart';
 
 void main() {

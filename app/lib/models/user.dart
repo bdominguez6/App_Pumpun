@@ -24,10 +24,9 @@ class User {
         title: "Read books",
         subtitle: "Books that you already read.",
         color: Colors.red),
-    BookList(
-        title: "Reading",
-        subtitle: "Books that you are reading.",
-        color: Colors.yellow),
   ];
   List<BookList> createdBookLists = [];
+
+  List<BookList> get allBookListsToShow =>
+      ([...defaultBookLists.sublist(1), ...createdBookLists]);
 }

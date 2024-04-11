@@ -1,11 +1,15 @@
+import 'package:app/data/dummy/dummy_david.dart';
 import 'package:app/widgets/booklist_screen/addbooklist_screen.dart';
 import 'package:app/models/booklist.dart';
 import 'package:app/widgets/booklist_screen/booklist_item.dart';
 import 'package:app/widgets/booklist_screen/booklistdetails_screen.dart';
 import 'package:flutter/material.dart';
 
+//list of lists
 class BookListsScreen extends StatefulWidget {
-  const BookListsScreen({super.key});
+  BookListsScreen({super.key});
+
+  User? user = DummyDavid().userDummy;
 
   @override
   State<BookListsScreen> createState() {
@@ -24,157 +28,15 @@ class _BookListsScreenState extends State<BookListsScreen> {
 
   void _addBookList(BookList bookList) {
     setState(() {
-      testList.add(bookList);
-      //   widget.user.createdBookLists.add(bookList);
+      widget.user!.createdBookLists.add(bookList);
     });
   }
 
-  //test list
-  final List<BookList> testList = [
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        color: Colors.blue),
-    BookList(
-        title: 'Reading',
-        subtitle: 'books you\'re currently reading',
-        color: Colors.yellow),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        color: Color.fromARGB(255, 243, 94, 25)),
-    BookList(
-        title: 'Wants to read',
-        subtitle: 'books you\'re planning to read',
-        color: Color.fromARGB(255, 190, 214, 101)),
-    /*BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: Colors.blue),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: const Color.fromARGB(255, 157, 194, 224)),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: Color.fromARGB(255, 68, 62, 3)),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: Color.fromARGB(255, 58, 196, 70)),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: const Color.fromARGB(255, 124, 132, 139)),
-    BookList(
-        title: 'Read',
-        subtitle: 'books you\'ve already read',
-        books: [
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-          Book(
-            title: '',
-            cover: '',
-            description: '',
-            author: [''],
-            genre: [''],
-          ),
-        ],
-        color: Colors.blue),*/
-  ];
-
-  var currentIndex = 0;
-
-  //void updateIndex(index)
-
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       //appBar start
@@ -182,7 +44,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Container(
-          margin: const EdgeInsets.all(15),
+          margin: const EdgeInsets.all(10),
           child: Image.asset('assets/images/icons/icon_64px.png'),
           height: 32,
           width: 32,
@@ -192,11 +54,13 @@ class _BookListsScreenState extends State<BookListsScreen> {
           child: Text(
             ' Your book-lists',
             style: TextStyle(
+
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
+        titleSpacing: 0,
         actions: [
           IconButton(
               onPressed: () {
@@ -207,36 +71,38 @@ class _BookListsScreenState extends State<BookListsScreen> {
       ),
 
       //show the lists
-      //if there are less than 5 list we include the + button after the lists presentation
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Flexible(
             child: ListView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 8),
+              padding: EdgeInsets.symmetric(vertical: screenHeight * 0.01),
               shrinkWrap: true,
-              itemCount: testList.length,
+              itemCount: widget.user!.allBookListsToShow.length,
               itemBuilder: (context, index) => GestureDetector(
-                //TODO edit the onTap to open book details
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => BookListDetailsScreen(
-                                currentList: testList[index],
+                                currentList:
+                                    widget.user!.allBookListsToShow[index],
                               )));
                 },
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: BookListItem(booklist: testList[index]),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.04,
+                      vertical: screenHeight * 0.009),
+                  child: BookListItem(
+                      booklist: widget.user!.allBookListsToShow[index]),
                 ),
               ),
             ),
           ),
-          if (testList.length < 6)
+          //if there are less than 4 created list we include the + button after the lists presentation (to fill the empty space)
+          if (widget.user!.createdBookLists.length < 4)
             Padding(
-              padding: EdgeInsets.all(40),
+              padding: EdgeInsets.all(screenWidth * 0.06),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,

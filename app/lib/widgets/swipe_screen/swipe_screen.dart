@@ -1,10 +1,18 @@
+import 'package:app/data/dummy/dummy_brais.dart';
+import 'package:app/widgets/swipe_screen/interactive_image.dart';
 import 'package:flutter/material.dart';
 
 class SwipeScreen extends StatelessWidget {
-  const SwipeScreen({super.key});
+  SwipeScreen({super.key});
 // TODO: si no funciona el swipe del video, hacerlo con Dismissible -> DismissDirection.horizontal, etc...
+
+  DummyBrais dummy = DummyBrais();
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent, // Fondo transparente
@@ -28,69 +36,28 @@ class SwipeScreen extends StatelessWidget {
         titleSpacing: 0,
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
-            // SECTION 1
-            child: Container(
-              color: Colors.black,
-              child: Center(
-                child: InteractiveImage(),
-                // child: Image.asset('assets/images/covers/harry_potter1_cover.jpg'),
-              ),
-            ),
+          /// Image section
+          InteractiveImage(
+            screenWidth: screenWidth,
+            screenHeight: screenHeight,
+            book: dummy.book1,
           ),
-          Expanded(
-            child: Container(
-              color: Colors.green,
-              child: const Center(
-                child: Text('Sección 2'),
-              ),
-            ),
-          ),
+
+          /// Button section
+          // Container(
+          //   width: screenWidth * 0.92,
+          //   height: screenHeight * 0.10,
+          //   // margin: EdgeInsets.fromLTRB(0, screenHeight * 0.06, 0, 0),
+          //   decoration: BoxDecoration(
+          //     color: Color.fromARGB(255, 191, 0, 255),
+          //     borderRadius: BorderRadius.circular(20),
+          //   ),
+          //   child: Text('Button container'),
+          //   alignment: Alignment.center,
+          // ),
         ],
       ),
-    );
-  }
-}
-
-class InteractiveImage extends StatelessWidget {
-  void _handleSwipe(DragUpdateDetails details) {
-    // Obtener la dirección del desplazamiento
-    double dx = details.delta.dx;
-    double dy = details.delta.dy;
-
-    if (dx.abs() > dy.abs()) {
-      // Desplazamiento horizontal
-      if (dx > 0) {
-        // Desplazamiento hacia la derecha
-        print('Desplazamiento hacia la derecha');
-        // Ejecutar función específica
-      } else {
-        // Desplazamiento hacia la izquierda
-        print('Desplazamiento hacia la izquierda');
-        // Ejecutar función específica
-      }
-    } else {
-      // Desplazamiento vertical
-      if (dy > 0) {
-        // Desplazamiento hacia abajo
-        print('Desplazamiento hacia abajo');
-        // Ejecutar función específica
-      } else {
-        // Desplazamiento hacia arriba
-        print('Desplazamiento hacia arriba');
-        // Ejecutar función específica
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onPanUpdate: _handleSwipe,
-      child: Image.asset(
-          'assets/images/covers/harry_potter1_cover.jpg'), // Cambia la ruta a tu imagen
     );
   }
 }

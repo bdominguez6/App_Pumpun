@@ -5,7 +5,7 @@ import 'package:app/widgets/swipe_screen/swipe_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-/// This class controls switching between different screens using the bottomNavigationBar.
+/// This class creates and uses bottomNavigationBar, it also controls switching between different screens.
 class MyHomePageController extends StatefulWidget {
   @override
   _MyHomePageControllerState createState() => _MyHomePageControllerState();
@@ -29,12 +29,18 @@ class _MyHomePageControllerState extends State<MyHomePageController> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: _screens[_selectedIndex], // Muestra la pantalla seleccionada
       bottomNavigationBar: Container(
         color: Colors.black,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+          padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.0382,
+              vertical: screenHeight * 0.01276),
+          // padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
           child: GNav(
             color: Colors.white,
             activeColor: Colors.amber,

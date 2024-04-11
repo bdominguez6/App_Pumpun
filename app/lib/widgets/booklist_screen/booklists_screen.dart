@@ -191,11 +191,10 @@ class _BookListsScreenState extends State<BookListsScreen> {
           color: Colors.black,
           child: Text(
             ' Your book-lists',
-            // style: GoogleFonts.lato(
-            //   color: Colors.white,
-            //   fontSize: 24,
-            //   fontWeight: FontWeight.bold,
-            // ),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         actions: [

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
-class UserPortrait extends StatelessWidget {
-  const UserPortrait(
+/// Un [Container] con una imagen formateada.
+///
+/// Genera un [Container] con ancho [width] y alto [height] que contiene
+/// una imagen [imagePath] con formato circular y reborde blanco.
+class CircularImage extends StatelessWidget {
+
+  const CircularImage(
       {super.key,
       required this.width,
       required this.height,
@@ -21,7 +26,7 @@ class UserPortrait extends StatelessWidget {
         shape: BoxShape.circle,
         border: Border.all(
           color: Colors.white,
-          width: width / 100,
+          width: width * 0.01,
         ),
         image: DecorationImage(
           image: AssetImage(imagePath),

@@ -19,11 +19,10 @@ class SwipeScreen extends StatelessWidget {
           color: Colors.black,
           child: Text(
             'Discover Books',
-            // style: TextStyle(
-            //   color: Colors.white,
-            //   fontSize: 24,
-            //   fontWeight: FontWeight.bold,
-            // ),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         titleSpacing: 0,

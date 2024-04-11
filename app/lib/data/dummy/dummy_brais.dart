@@ -17,9 +17,11 @@ class DummyBrais {
     );
 
     book1 = Book(
-      title: "Juego de tronos: Canción de Fuego y Hielo",
+      title: "Juego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y Hielo",
       cover: "assets/images/covers/portada1.jpg",
-      authorList: ['George R.R. Martin', 'George R.R. Martin'],
+      authorList: [
+        'George A.R. Martin',
+      ],
       genreList: [Genre.horror, Genre.suspense],
       record: Record.liked,
       description:

@@ -1,3 +1,4 @@
+import 'package:app/constants/screen_constants.dart';
 import 'package:app/models/book.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,14 +6,8 @@ import 'package:flutter/widgets.dart';
 
 /// This class provide the whole interactive image.
 class InteractiveImage extends StatelessWidget {
-  const InteractiveImage(
-      {super.key,
-      required this.screenWidth,
-      required this.screenHeight,
-      required this.book});
+  const InteractiveImage({super.key, required this.book});
 
-  final double screenWidth;
-  final double screenHeight;
   final Book book;
 
   void _handleSwipe(DragUpdateDetails details) {
@@ -57,7 +52,6 @@ class InteractiveImage extends StatelessWidget {
             Container(
               // ignore: prefer_const_constructors
               decoration: BoxDecoration(
-                color: Colors.amber,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(
                       20.0), // Radio de borde en la esquina inferior izquierda
@@ -65,65 +59,87 @@ class InteractiveImage extends StatelessWidget {
                       20.0), // Radio de borde en la esquina inferior derecha
                 ),
               ),
-              padding: EdgeInsets.fromLTRB(0, screenHeight * 0.02, 0, 0),
-              width: screenWidth * 0.65,
+              padding:
+                  EdgeInsets.fromLTRB(0, ScreenConstants.height * 0.02, 0, 0),
+              width: ScreenConstants.width * 0.65,
               // height: screenHeight * 0.60,
-              child: Image.asset(book.cover),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10.0),
+                ),
+                child: Image.asset(book.cover),
+              ),
             ),
 
             /// Book description section
             Container(
               decoration: const BoxDecoration(
-                color: Colors.amber,
+                color: Color.fromARGB(255, 42, 42, 42),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(
-                      20.0), // Radio de borde en la esquina inferior izquierda
+                      10.0), // Radio de borde en la esquina inferior izquierda
                   bottomRight: Radius.circular(
-                      20.0), // Radio de borde en la esquina inferior derecha
+                      10.0), // Radio de borde en la esquina inferior derecha
                 ),
               ),
-              width: screenWidth * 0.65,
+              width: ScreenConstants.width * 0.65,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   /// Title
                   Container(
-                    height: screenHeight * 0.05,
+                    height: ScreenConstants.height * 0.05,
                     alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    margin: EdgeInsets.all(ScreenConstants.width * 0.02),
                     child: Text(
                       book.title,
-                      style: const TextStyle(color: Colors.black),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
 
                   /// Horizontal divider line
                   SizedBox(
-                    width: screenWidth * 0.6,
+                    width: ScreenConstants.width * 0.6,
                     child: const Divider(
                       color: Color.fromARGB(100, 0, 0, 0),
                       thickness: 1,
-                      height: 20,
+                      height: 0,
                     ),
                   ),
 
                   /// Author and genre
                   Container(
-                    height: screenHeight * 0.05,
-                    margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    height: ScreenConstants.height * 0.05,
+                    margin: EdgeInsets.all(ScreenConstants.width * 0.02),
                     child: Row(
                       children: [
                         Expanded(
                           child: Text(
                             book.authorList.join(', '),
-                            style: const TextStyle(color: Colors.black),
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontSize: 12,
+                              // fontWeight: FontWeight.bold,
+                            ),
                           ),
+                        ),
+                        SizedBox(
+                          width: ScreenConstants.width * 0.03,
                         ),
                         Expanded(
                           child: Text(
                             // book.genre[0].name,
                             book.getGenders,
-                            style: const TextStyle(color: Colors.black),
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontSize: 12,
+                              // fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],

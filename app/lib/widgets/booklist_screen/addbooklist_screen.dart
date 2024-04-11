@@ -57,6 +57,9 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                     if (value!.isEmpty) {
                       return 'Please enter the list name.';
                     }
+                    if (value.length > 20) {
+                      return 'Title is too long';
+                    }
                     return null;
                   },
                   onSaved: (value) {
@@ -68,6 +71,9 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter the subtitle.';
+                    }
+                    if (value.length > 30) {
+                      return 'Subtitle is too long';
                     }
 
                     return null;

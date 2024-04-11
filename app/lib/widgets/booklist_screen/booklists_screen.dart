@@ -42,19 +42,21 @@ class _BookListsScreenState extends State<BookListsScreen> {
       //appBar start
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        // Fondo transparente
         elevation: 0,
+        // Destabilizer el sombreado
         leading: Container(
           margin: const EdgeInsets.all(10),
+          height: ScreenConstants.height * 0.03,
+          width: ScreenConstants.width * 0.078,
           child: Image.asset('assets/images/icons/icon_64px.png'),
-          height: 32,
-          width: 32,
         ),
         title: Title(
           color: Colors.black,
           child: Text(
-            ' Your book-lists',
+            'Your book-lists',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: ScreenConstants.height * 0.028,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -68,7 +70,6 @@ class _BookListsScreenState extends State<BookListsScreen> {
               icon: Icon(Icons.add))
         ],
       ),
-
       //show the lists
       body: Column(
         mainAxisSize: MainAxisSize.max,

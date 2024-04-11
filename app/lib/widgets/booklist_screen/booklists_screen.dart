@@ -5,6 +5,8 @@ import 'package:app/widgets/booklist_screen/booklist_item.dart';
 import 'package:app/widgets/booklist_screen/booklistdetails_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/user.dart';
+
 //list of lists
 class BookListsScreen extends StatefulWidget {
   BookListsScreen({super.key});

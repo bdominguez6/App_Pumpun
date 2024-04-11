@@ -13,7 +13,7 @@ class DummyDavid {
 
     book1 = Book(
       title: "Juego de tronos: Canción de Fuego y Hielo",
-      cover: "assets/images/portada1.jpg",
+      cover: "assets/images/covers/portada1.jpg",
       author: ['George R.R. Martin', 'George R.R. Martin'],
       genre: [Genre.horror, Genre.suspense],
       record: Record.liked,
@@ -22,7 +22,7 @@ class DummyDavid {
     );
     book2 = Book(
       title: "El Quijote",
-      cover: "assets/images/portada2.jpeg",
+      cover: "assets/images/covers/portada2.jpeg",
       author: [
         'Miguel de Cervantes',
         'Miguel de Cervantes',

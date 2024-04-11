@@ -5,42 +5,42 @@ import '../../models/user.dart';
 
 /// Un [Container] que representa la información principal de un usuario.
 ///
-/// Genera un [Container] que, en función de [screenWidth] y de [screenHeight],
-/// representa mediante una [Column] [user.image], [user.username] y [user.name] en ese orden.
+/// Genera un [Container] que, en función de [width] y de [height],
+/// representa mediante una Column [user.image], [user.username] y [user.name] en ese orden.
 class UserData extends StatelessWidget {
   const UserData(
       {super.key,
-      required this.screenWidth,
-      required this.screenHeight,
+      required this.width,
+      required this.height,
       required this.user});
 
-  final double screenWidth;
-  final double screenHeight;
+  final double width;
+  final double height;
   final User user;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: screenWidth,
-      height: screenHeight * 0.25,
+      width: width,
+      height: height * 0.25,
       child: Column(
         children: [
           Expanded(
             child: CircularImage(
-              height: screenHeight * 0.333,
-              width: screenWidth * 0.333,
+              height: height * 0.333,
+              width: width * 0.333,
               imagePath: user.image,
             ),
           ),
-          SizedBox(height: screenWidth * 0.025),
+          SizedBox(height: width * 0.025),
           Text(
             user.username,
-            style: TextStyle(fontSize: screenHeight * 0.0285),
+            style: TextStyle(fontSize: height * 0.0285),
           ),
-          SizedBox(height: screenHeight * 0.00625),
+          SizedBox(height: height * 0.00625),
           Text(
             user.name,
-            style: TextStyle(fontSize: screenHeight * 0.02),
+            style: TextStyle(fontSize: height * 0.02),
           ),
         ],
       ),

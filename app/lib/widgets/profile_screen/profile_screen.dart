@@ -1,3 +1,4 @@
+import 'package:app/constants/screen_constants.dart';
 import 'package:app/data/dummy/dummy_bryan.dart';
 import 'package:app/widgets/profile_screen/user_data.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,6 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
 
     DummyBryan dummy = DummyBryan();
     // Coge los primeros 6 elementos de la lista de me gusta del usuario
@@ -35,11 +34,11 @@ class ProfileScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         // Fondo transparente
         elevation: 0,
-        // Deshabilitar el sombreado
+        // Destabilizer el sombreado
         leading: Container(
           margin: const EdgeInsets.all(10),
-          height: screenHeight * 0.036,
-          width: screenWidth * 0.078,
+          height: ScreenConstants.height * 0.036,
+          width: ScreenConstants.width * 0.078,
           child: Image.asset('assets/images/icons/icon_64px.png'),
         ),
         title: Title(
@@ -47,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
           child: Text(
             'Profile',
             style: TextStyle(
-              fontSize: screenHeight * 0.027,
+              fontSize: ScreenConstants.height * 0.027,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -56,22 +55,22 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: screenHeight * 0.025),
+          SizedBox(height: ScreenConstants.height * 0.025),
           UserData(
-            screenWidth: screenWidth,
-            screenHeight: screenHeight,
+            width: ScreenConstants.width,
+            height: ScreenConstants.height,
             user: dummy.userDummy!,
           ),
-          SizedBox(height: screenHeight * 0.025),
+          SizedBox(height: ScreenConstants.height * 0.025),
           Container(
-            width: screenWidth * 0.95,
+            width: ScreenConstants.width * 0.95,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Last Liked',
                   style: TextStyle(
-                    fontSize: screenHeight * 0.04,
+                    fontSize: ScreenConstants.height * 0.04,
                   ),
                 ),
                 TextButton(
@@ -82,30 +81,30 @@ class ProfileScreen extends StatelessWidget {
                   child: Text(
                     'More...',
                     style: TextStyle(
-                      fontSize: screenHeight * 0.02,
+                      fontSize: ScreenConstants.height * 0.02,
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          SizedBox(height: screenHeight * 0.0222),
+          SizedBox(height: ScreenConstants.height * 0.0222),
           if (likedBooks.isNotEmpty)
             ScrollableBookList(
-              width: screenWidth * 0.95,
-              height: screenHeight * 0.4,
+              width: ScreenConstants.width * 0.95,
+              height: ScreenConstants.height * 0.4,
               books: likedBooks,
             ),
           if (likedBooks.isEmpty)
             SizedBox(
-              width: screenWidth * 0.95,
-              height: screenHeight * 0.4,
+              width: ScreenConstants.width * 0.95,
+              height: ScreenConstants.height * 0.4,
               child: Center(
-                heightFactor: screenHeight * 0.02,
+                heightFactor: ScreenConstants.height * 0.02,
                 child: Text(
                   'The \"Liked Books\" list is empty, go swipe some books!',
                   style: TextStyle(
-                    fontSize: screenHeight * 0.02,
+                    fontSize: ScreenConstants.height * 0.02,
                     color: Color.fromARGB(100, 255, 255, 255),
                   ),
                 ),

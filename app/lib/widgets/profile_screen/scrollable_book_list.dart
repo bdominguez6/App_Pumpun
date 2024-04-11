@@ -33,14 +33,18 @@ class ScrollableBookList extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 BookPortrait(
-                    book: books[index * 2],
-                    width: width * 0.4,
-                    height: height * 0.5),
+                  book: books[index * 2],
+                  width: width * 0.4,
+                  height: height * 0.5,
+                  action: () {},
+                ),
                 if (index * 2 + 1 < books.length)
                   BookPortrait(
-                      book: books[index * 2 + 1],
-                      width: width *0.4,
-                      height: height * 0.5),
+                    book: books[index * 2 + 1],
+                    width: width * 0.4,
+                    height: height * 0.5,
+                    action: () {},
+                  ),
               ],
             ),
           );

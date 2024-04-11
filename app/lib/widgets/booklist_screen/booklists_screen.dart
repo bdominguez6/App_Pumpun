@@ -56,7 +56,6 @@ class _BookListsScreenState extends State<BookListsScreen> {
           child: Text(
             ' Your book-lists',
             style: TextStyle(
-
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),

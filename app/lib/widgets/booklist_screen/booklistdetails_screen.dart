@@ -29,7 +29,7 @@ class BookListDetailsScreen extends StatelessWidget {
                 itemCount: currentList.books.length,
                 itemBuilder: (context, index) => GestureDetector(
                   onTap: () {
-                    //TODO call the book prophile screen when a book is tapped);
+                    //TODO call the book profile screen when a book is tapped);
                   },
                   child: Padding(
                     padding: EdgeInsets.symmetric(

@@ -5,8 +5,8 @@ class Book {
       {required this.title,
       required this.cover,
       required this.description,
-      required this.author,
-      required this.genre,
+      required this.authorList,
+      required this.genreList,
       this.amazonLink = '',
       required this.record}) {
     icon = switch (record) {
@@ -21,8 +21,8 @@ class Book {
   final String cover;
   final String description;
   final String amazonLink;
-  final List<Genre> genre;
-  final List<String> author;
+  final List<Genre> genreList;
+  final List<String> authorList;
   final Record record;
   // para usarlo: IconData(ICON, fontFamily: 'MaterialIcons');
   int icon = 0xe1f0; // Temporal, debería ser una ruta

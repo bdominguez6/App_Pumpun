@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
+//form to add new booklists to a user
 class AddBooklistScreen extends StatefulWidget {
   const AddBooklistScreen({super.key, required this.onAddBooklist});
 

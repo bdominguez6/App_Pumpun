@@ -26,4 +26,7 @@ class User {
         color: Colors.red),
   ];
   List<BookList> createdBookLists = [];
+
+  List<BookList> get allBookListsToShow =>
+      ([...defaultBookLists.sublist(1), ...createdBookLists]);
 }

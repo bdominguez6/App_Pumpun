@@ -46,6 +46,7 @@ class SwipeScreen extends StatelessWidget {
 
           /// Button section
           Container(
+            margin: EdgeInsets.only(top: screenHeight * 0.025),
             width: screenWidth * 0.92,
             height: screenHeight * 0.10,
             // margin: EdgeInsets.fromLTRB(0, screenHeight * 0.06, 0, 0),

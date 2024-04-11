@@ -12,6 +12,7 @@ class User {
 
   final String username;
   final String password;
+  // TODO: email
   final String name;
   final String image;
   List<BookList> defaultBookLists = [

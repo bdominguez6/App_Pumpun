@@ -1,3 +1,4 @@
+import 'package:app/constants/screen_constants.dart';
 import 'package:app/data/dummy/dummy_david.dart';
 import 'package:app/widgets/booklist_screen/addbooklist_screen.dart';
 import 'package:app/models/booklist.dart';
@@ -36,9 +37,6 @@ class _BookListsScreenState extends State<BookListsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       //appBar start
@@ -77,7 +75,8 @@ class _BookListsScreenState extends State<BookListsScreen> {
         children: [
           Flexible(
             child: ListView.builder(
-              padding: EdgeInsets.symmetric(vertical: screenHeight * 0.01),
+              padding:
+                  EdgeInsets.symmetric(vertical: ScreenConstants.height * 0.01),
               shrinkWrap: true,
               itemCount: widget.user!.allBookListsToShow.length,
               itemBuilder: (context, index) => GestureDetector(
@@ -92,18 +91,19 @@ class _BookListsScreenState extends State<BookListsScreen> {
                 },
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.04,
-                      vertical: screenHeight * 0.009),
+                      horizontal: ScreenConstants.width * 0.04,
+                      vertical: ScreenConstants.height * 0.009),
                   child: BookListItem(
                       booklist: widget.user!.allBookListsToShow[index]),
                 ),
               ),
             ),
           ),
+          //TODO: change the message to appear only at certain width
           //if there are less than 4 created list we include the + button after the lists presentation (to fill the empty space)
           if (widget.user!.createdBookLists.length < 4)
             Padding(
-              padding: EdgeInsets.all(screenWidth * 0.06),
+              padding: EdgeInsets.all(ScreenConstants.width * 0.06),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,

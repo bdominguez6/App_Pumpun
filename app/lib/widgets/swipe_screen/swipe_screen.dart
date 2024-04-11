@@ -1,4 +1,4 @@
-import 'package:app/data/dummy/dummy_bryan.dart';
+import 'package:app/data/dummy/dummy_brais.dart';
 import 'package:app/widgets/swipe_screen/interactive_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +7,7 @@ class SwipeScreen extends StatelessWidget {
   SwipeScreen({super.key});
 // TODO: si no funciona el swipe del video, hacerlo con Dismissible -> DismissDirection.horizontal, etc...
 
-  DummyBryan dummy = DummyBryan();
+  DummyBrais dummy = DummyBrais();
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +39,25 @@ class SwipeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(),
+          /// Image section
           InteractiveImage(
             screenWidth: screenWidth,
             screenHeight: screenHeight,
-            book: dummy, //TODO: pasarle BOOKS ficticios y mostrarlos
-          )
+            book: dummy.book1,
+          ),
+
+          /// Button section
+          // Container(
+          //   width: screenWidth * 0.92,
+          //   height: screenHeight * 0.10,
+          //   // margin: EdgeInsets.fromLTRB(0, screenHeight * 0.06, 0, 0),
+          //   decoration: BoxDecoration(
+          //     color: Color.fromARGB(255, 191, 0, 255),
+          //     borderRadius: BorderRadius.circular(20),
+          //   ),
+          //   child: Text('Button container'),
+          //   alignment: Alignment.center,
+          // ),
         ],
       ),
     );

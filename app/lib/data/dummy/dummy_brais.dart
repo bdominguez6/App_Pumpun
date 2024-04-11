@@ -1,14 +1,14 @@
 import 'package:app/models/book.dart';
 import 'package:app/models/user.dart';
 
-class DummyBryan {
+class DummyBrais {
   User? userDummy;
   late Book book1;
   late Book book2;
   late Book book3;
   late Book book4;
 
-  DummyBryan() {
+  DummyBrais() {
     userDummy = User(
       username: 'ManzanaPlatano231',
       password: 'password',

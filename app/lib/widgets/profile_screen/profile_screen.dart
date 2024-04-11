@@ -37,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
         // Destabilizer el sombreado
         leading: Container(
           margin: const EdgeInsets.all(10),
-          height: ScreenConstants.height * 0.036,
+          height: ScreenConstants.height * 0.03,
           width: ScreenConstants.width * 0.078,
           child: Image.asset('assets/images/icons/icon_64px.png'),
         ),
@@ -46,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
           child: Text(
             'Profile',
             style: TextStyle(
-              fontSize: ScreenConstants.height * 0.027,
+              fontSize: ScreenConstants.height * 0.04,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -55,13 +55,13 @@ class ProfileScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: ScreenConstants.height * 0.025),
+          SizedBox(height: ScreenConstants.height * 0.02),
           UserData(
             width: ScreenConstants.width,
             height: ScreenConstants.height,
             user: dummy.userDummy!,
           ),
-          SizedBox(height: ScreenConstants.height * 0.025),
+          SizedBox(height: ScreenConstants.height * 0.02),
           Container(
             width: ScreenConstants.width * 0.95,
             child: Row(
@@ -88,7 +88,7 @@ class ProfileScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: ScreenConstants.height * 0.0222),
+          SizedBox(height: ScreenConstants.height * 0.02),
           if (likedBooks.isNotEmpty)
             ScrollableBookList(
               width: ScreenConstants.width * 0.95,

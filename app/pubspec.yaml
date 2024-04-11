@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_colorpicker: ^1.0.3
   google_nav_bar: ^5.0.6
+  flutter_card_swiper: ^7.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -79,26 +80,26 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Lato
-       fonts:
-         - asset: assets/fonts/lato/Lato-Regular.ttf
-         - asset: assets/fonts/lato/Lato-Italic.ttf
-           style: italic
-         - asset: assets/fonts/lato/Lato-Light.ttf
-           weight: 300
-         - asset: assets/fonts/lato/Lato-LightItalic.ttf
-           weight: 300
-           style: italic
-         - asset: assets/fonts/lato/Lato-Bold.ttf
-           weight: 700
-         - asset: assets/fonts/lato/Lato-BoldItalic.ttf
-           weight: 700
-           style: italic
-         - asset: assets/fonts/lato/Lato-Black.ttf
-           weight: 900
-         - asset: assets/fonts/lato/Lato-BlackItalic.ttf
-           weight: 900
-           style: italic
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/lato/Lato-Regular.ttf
+        - asset: assets/fonts/lato/Lato-Italic.ttf
+          style: italic
+        - asset: assets/fonts/lato/Lato-Light.ttf
+          weight: 300
+        - asset: assets/fonts/lato/Lato-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/lato/Lato-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/lato/Lato-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/lato/Lato-Black.ttf
+          weight: 900
+        - asset: assets/fonts/lato/Lato-BlackItalic.ttf
+          weight: 900
+          style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -17,7 +17,8 @@ class DummyBrais {
     );
 
     book1 = Book(
-      title: "Juego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y Hielo",
+      title:
+          "Juego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y HieloJuego de tronos: Canción de Fuego y Hielo",
       cover: "assets/images/covers/portada1.jpg",
       authorList: [
         'George A.R. Martin',
@@ -52,10 +53,10 @@ class DummyBrais {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in quam mollis, aliquet quam in, cursus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc viverra aliquet sapien nec eleifend...",
     );
     book4 = Book(
-      title: "1984",
-      cover: "assets/images/covers/portada2.jpeg",
-      authorList: ['George Orwell'],
-      genreList: [Genre.romance, Genre.horror],
+      title: "Harry Potter: La piedra filosofal",
+      cover: "assets/images/covers/harry_potter1_cover.jpg",
+      authorList: ['J.K. Rowling'],
+      genreList: [Genre.romance, Genre.horror, Genre.scifi],
       record: Record.disliked,
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in quam mollis, aliquet quam in, cursus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc viverra aliquet sapien nec eleifend. Nunc euismod a lorem non posuere. Etiam molestie imperdiet ornare. Suspendisse a sem eget eros commodo pellentesque quis maximus tortor. Maecenas iaculis vestibulum magna, at malesuada elit interdum id. Aliquam ac ante erat. Mauris facilisis elementum cursus. Vivamus hendrerit mauris a magna mollis auctor. Nulla auctor consequat mi in pulvinar. Maecenas at urna at neque.",

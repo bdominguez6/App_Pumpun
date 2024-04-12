@@ -15,8 +15,8 @@ class _MyHomePageControllerState extends State<MyHomePageController> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    SearchScreen(), // TODO: change this search to down
     SwipeScreen(),
+    SearchScreen(),
     BookListsScreen(),
     ProfileScreen(),
   ];

@@ -1,5 +1,7 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/data/dummy/dummy_brais.dart';
+import 'package:app/models/book.dart';
+import 'package:app/models/booklist.dart';
 import 'package:app/widgets/swipe_screen/interactive_image.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +10,7 @@ class SwipeScreen extends StatelessWidget {
 // TODO: si no funciona el swipe del video, hacerlo con Dismissible -> DismissDirection.horizontal, etc...
 
   DummyBrais dummy = DummyBrais();
+  List<Book> bookList = [];
 
   @override
   Widget build(BuildContext context) {

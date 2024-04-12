@@ -1,7 +1,6 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/data/dummy/dummy_brais.dart';
 import 'package:app/models/book.dart';
-import 'package:app/models/booklist.dart';
 import 'package:app/widgets/swipe_screen/interactive_image.dart';
 import 'package:flutter/material.dart';
 

@@ -38,9 +38,9 @@ class DummyDavid {
 
     // Method to fill the book lists
     userDummy!.createdBookLists.add(
-        BookList(title: 'Prueba', subtitle: 'probando 1', color: Colors.blue));
+        BookList(title: 'Prueba1', subtitle: 'probando 1', color: Colors.blue));
     userDummy!.createdBookLists.add(BookList(
-        title: 'Prueba',
+        title: 'Prueba2',
         subtitle: 'probando 2',
         color: const Color.fromARGB(255, 175, 186, 196)));
     userDummy!.createdBookLists[0].books.insert(0, book1);

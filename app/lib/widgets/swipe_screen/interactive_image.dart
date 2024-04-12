@@ -1,11 +1,13 @@
 import 'package:app/data/dummy/dummy_brais.dart';
+import 'package:app/models/book.dart';
 import 'package:app/widgets/swipe_screen/book_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
 class InteractiveImage extends StatelessWidget {
-  
+  const InteractiveImage({super.key, required this.book});
 
+  final Book book;
 
   @override
   Widget build(BuildContext context) {

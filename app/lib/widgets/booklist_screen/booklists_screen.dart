@@ -5,6 +5,7 @@ import 'package:app/models/booklist.dart';
 import 'package:app/widgets/booklist_screen/booklist_item.dart';
 import 'package:app/widgets/booklist_screen/booklistdetails_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../models/user.dart';
 
@@ -75,11 +76,25 @@ class _BookListsScreenState extends State<BookListsScreen> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Flexible(
-            child: ListView.builder(
-              padding:
-                  EdgeInsets.symmetric(vertical: ScreenConstants.height * 0.01),
-              shrinkWrap: true,
-              itemCount: widget.user!.allBookListsToShow.length,
+              child: /*ReorderableListView.builder(
+              onReorder: (int oldIndex, int newIndex) {
+                setState(() {
+                  if (oldIndex > 1 && newIndex > 1) {
+                    BookList value =
+                        widget.user!.createdBookLists.removeAt(oldIndex - 2);
+                    widget.user!.createdBookLists.insert(newIndex - 2, value);
+                  } else {
+                    Fluttertoast.showToast(
+                        msg: 'You can\'t move default lists',
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  }
+                });
+              },
               itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -90,6 +105,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
                                     widget.user!.allBookListsToShow[index],
                               )));
                 },
+                key: ValueKey(index),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: ScreenConstants.width * 0.04,
@@ -98,8 +114,90 @@ class _BookListsScreenState extends State<BookListsScreen> {
                       booklist: widget.user!.allBookListsToShow[index]),
                 ),
               ),
-            ),
-          ),
+              itemCount: widget.user!.allBookListsToShow.length,
+            ),*/
+                  //TODO separate on other file
+                  ListView(
+            children: [
+              /*ListView.builder(
+                padding: EdgeInsets.symmetric(
+                    vertical: ScreenConstants.height * 0.01),
+                shrinkWrap: true,
+                itemCount: widget.user!.allBookListsToShow.length,
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BookListDetailsScreen(
+                                  currentList:
+                                      widget.user!.allBookListsToShow[index],
+                                )));
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: ScreenConstants.width * 0.04,
+                        vertical: ScreenConstants.height * 0.009),
+                    child: BookListItem(
+                        booklist: widget.user!.allBookListsToShow[index]),
+                  ),
+                ),
+              ),*/
+              ReorderableListView.builder(
+                shrinkWrap: true,
+                onReorder: (int oldIndex, int newIndex) {
+                  setState(() {
+                    if (oldIndex > 1 && newIndex > 1) {
+                      BookList value =
+                          widget.user!.createdBookLists.removeAt(oldIndex - 2);
+                      widget.user!.createdBookLists.insert(newIndex - 2, value);
+                    } else {
+                      Fluttertoast.showToast(
+                          msg: 'You can\'t move default lists',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                    }
+                  });
+                },
+                itemBuilder: (context, index) => GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BookListDetailsScreen(
+                                    currentList:
+                                        widget.user!.allBookListsToShow[index],
+                                  )));
+                    },
+                    key: ValueKey(index),
+                    child: Dismissible(
+                      key: ValueKey(index),
+                      onDismissed: (direction) {
+                        setState(() {
+                          String itemDeleted = widget.user!.allBookListsToShow
+                              .removeAt(index)
+                              .title;
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('$itemDeleted dismissed')),
+                          );
+                        });
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: ScreenConstants.width * 0.04,
+                            vertical: ScreenConstants.height * 0.009),
+                        child: BookListItem(
+                            booklist: widget.user!.allBookListsToShow[index]),
+                      ),
+                    )),
+                itemCount: widget.user!.allBookListsToShow.length,
+              ),
+            ],
+          )),
           //TODO: change the message to appear only at certain width
           //if there are less than 4 created list we include the + button after the lists presentation (to fill the empty space)
           if (widget.user!.createdBookLists.length < 4)

@@ -1,3 +1,4 @@
+import 'package:app/constants/screen_constants.dart';
 import 'package:app/models/booklist.dart';
 import 'package:flutter/material.dart';
 
@@ -34,8 +35,6 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(),
@@ -47,9 +46,9 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
           child: Padding(
             //padding: EdgeInsets.all(50.0),
             padding: EdgeInsets.only(
-                left: screenWidth * 0.12,
-                right: screenWidth * 0.12,
-                top: screenHeight * 0.01),
+                left: ScreenConstants.width * 0.12,
+                right: ScreenConstants.width * 0.12,
+                top: ScreenConstants.height * 0.01),
             child: Column(
               children: [
                 TextFormField(
@@ -57,6 +56,9 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter the list name.';
+                    }
+                    if (value.length > 20) {
+                      return 'Title is too long';
                     }
                     return null;
                   },
@@ -70,6 +72,9 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                     if (value!.isEmpty) {
                       return 'Please enter the subtitle.';
                     }
+                    if (value.length > 30) {
+                      return 'Subtitle is too long';
+                    }
 
                     return null;
                   },
@@ -77,18 +82,17 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                     _subtitle = value!;
                   },
                 ),
-                SizedBox(height: screenHeight * 0.02),
+                SizedBox(height: ScreenConstants.height * 0.02),
                 //color picker for the user
                 // flutter pub add flutter_colorpicker
                 Text(
                   'Choose a Color',
                 ),
-                SizedBox(height: screenHeight * 0.02),
+                SizedBox(height: ScreenConstants.height * 0.02),
                 ColorPicker(
                     pickerColor: _color,
-
                     onColorChanged: (color) => {_color = color}),
-                SizedBox(height: screenHeight * 0.01),
+                SizedBox(height: ScreenConstants.height * 0.01),
                 TextButton(
                   onPressed: _submitForm,
                   child: Text('Create'),

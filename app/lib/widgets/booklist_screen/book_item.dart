@@ -1,3 +1,4 @@
+import 'package:app/constants/screen_constants.dart';
 import 'package:app/models/book.dart';
 import 'package:flutter/material.dart';
 
@@ -9,24 +10,22 @@ class BookItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     String clippedDescription = book.description.length >= 70
         ? "${book.description.substring(0, 70)}..."
         : book.description;
     return Card(
         child: Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.055, vertical: screenHeight * 0.023),
+          horizontal: ScreenConstants.width * 0.055,
+          vertical: ScreenConstants.height * 0.023),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Image.asset(
           book.cover,
-          width: screenWidth * 0.2,
-          height: screenHeight * 0.1,
+          width: ScreenConstants.width * 0.2,
+          height: ScreenConstants.height * 0.1,
         ),
         SizedBox(
-          width: screenWidth * 0.04,
+          width: ScreenConstants.width * 0.04,
         ),
         Expanded(
             child: Column(
@@ -37,7 +36,7 @@ class BookItem extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: screenHeight * 0.01,
+              height: ScreenConstants.height * 0.01,
             ),
             Text(
               clippedDescription,

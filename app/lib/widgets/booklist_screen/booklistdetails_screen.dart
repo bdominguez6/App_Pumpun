@@ -1,6 +1,7 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/models/booklist.dart';
 import 'package:app/widgets/booklist_screen/book_item.dart';
+import 'package:app/widgets/common/goback_button_appbar.dart';
 import 'package:flutter/material.dart';
 
 //screen to show all the books of a list
@@ -12,9 +13,11 @@ class BookListDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: BackButton(),
-        title: Text(currentList.title),
+      appBar: GoBackButtonAppBar(
+        title: currentList.title,
+        buttonIcon: Icon(Icons.delete),
+        //TODO THE DELETE LIST
+        buttonMethod: () {},
       ),
       //we check if the list has books. if not, we print a message
       body: currentList.books.isEmpty

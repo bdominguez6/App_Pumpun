@@ -25,7 +25,7 @@ class BookPortrait extends StatelessWidget {
         ? "${book.title.substring(0, 15)}..."
         : book.title;
     return InkWell(
-      onTap: () {},
+      onTap: action,
       child: Container(
         color: Color.fromARGB(150, 50, 50, 50),
         child: Column(

@@ -1,5 +1,6 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/data/dummy/dummy_bryan.dart';
+import 'package:app/widgets/profile_screen/empty_list_message.dart';
 import 'package:app/widgets/profile_screen/records_screen.dart';
 import 'package:app/widgets/profile_screen/settings_screen.dart';
 import 'package:app/widgets/profile_screen/user_data.dart';
@@ -40,12 +41,13 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     DummyBryan dummy = DummyBryan();
     // Coge los primeros 6 elementos de la lista de me gusta del usuario
+    // List<Book> likedBooks = [];
     List<Book> likedBooks =
-        DummyBryan().userDummy!.defaultBookLists[1].books.sublist(
+        DummyBryan().user!.defaultBookLists[1].books.sublist(
               0,
-              DummyBryan().userDummy!.defaultBookLists[1].books.length >= 6
+              DummyBryan().user!.defaultBookLists[1].books.length >= 6
                   ? 6
-                  : DummyBryan().userDummy!.defaultBookLists[1].books.length,
+                  : DummyBryan().user!.defaultBookLists[1].books.length,
             );
 
     return Scaffold(
@@ -79,14 +81,13 @@ class ProfileScreen extends StatelessWidget {
               icon: Icon(Icons.settings))
         ],
       ),
-
       body: Column(
         children: [
           SizedBox(height: ScreenConstants.height * 0.02),
           UserData(
             width: ScreenConstants.width,
             height: ScreenConstants.height,
-            user: dummy.userDummy!,
+            user: dummy.user!,
           ),
           SizedBox(height: ScreenConstants.height * 0.02),
           Container(
@@ -125,20 +126,9 @@ class ProfileScreen extends StatelessWidget {
               books: likedBooks,
             ),
           if (likedBooks.isEmpty)
-            SizedBox(
-              width: ScreenConstants.width * 0.95,
-              height: ScreenConstants.height * 0.4,
-              child: Center(
-                heightFactor: ScreenConstants.height * 0.02,
-                child: Text(
-                  'The \"Liked Books\" list is empty, go swipe some books!',
-                  style: TextStyle(
-                    fontSize: ScreenConstants.height * 0.02,
-                    color: Color.fromARGB(100, 255, 255, 255),
-                  ),
-                ),
-              ),
-            ),
+            EmptyListMessage(
+                width: ScreenConstants.width,
+                height: ScreenConstants.height * 0.4),
         ],
       ),
     );

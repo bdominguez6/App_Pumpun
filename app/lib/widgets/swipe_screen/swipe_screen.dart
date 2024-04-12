@@ -1,4 +1,7 @@
+import 'package:app/constants/screen_constants.dart';
 import 'package:app/data/dummy/dummy_brais.dart';
+import 'package:app/models/book.dart';
+import 'package:app/models/booklist.dart';
 import 'package:app/widgets/swipe_screen/interactive_image.dart';
 import 'package:flutter/material.dart';
 
@@ -7,12 +10,10 @@ class SwipeScreen extends StatelessWidget {
 // TODO: si no funciona el swipe del video, hacerlo con Dismissible -> DismissDirection.horizontal, etc...
 
   DummyBrais dummy = DummyBrais();
+  List<Book> bookList = [];
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent, // Fondo transparente
@@ -25,7 +26,7 @@ class SwipeScreen extends StatelessWidget {
         ),
         title: Title(
           color: Colors.black,
-          child: Text(
+          child: const Text(
             'Discover Books',
             style: TextStyle(
               fontSize: 24,
@@ -37,25 +38,24 @@ class SwipeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          /// Image section
+          /// Image container
           InteractiveImage(
-            screenWidth: screenWidth,
-            screenHeight: screenHeight,
             book: dummy.book1,
           ),
 
-          /// Button section
-          // Container(
-          //   width: screenWidth * 0.92,
-          //   height: screenHeight * 0.10,
-          //   // margin: EdgeInsets.fromLTRB(0, screenHeight * 0.06, 0, 0),
-          //   decoration: BoxDecoration(
-          //     color: Color.fromARGB(255, 191, 0, 255),
-          //     borderRadius: BorderRadius.circular(20),
-          //   ),
-          //   child: Text('Button container'),
-          //   alignment: Alignment.center,
-          // ),
+          /// Button container
+          Container(
+            margin: EdgeInsets.only(top: ScreenConstants.height * 0.025),
+            width: ScreenConstants.width * 0.92,
+            height: ScreenConstants.height * 0.10,
+            // margin: EdgeInsets.fromLTRB(0, screenHeight * 0.06, 0, 0),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 191, 0, 255),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: const Text('Button container'),
+            alignment: Alignment.center,
+          ),
         ],
       ),
     );

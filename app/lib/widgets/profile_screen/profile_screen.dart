@@ -79,7 +79,6 @@ class ProfileScreen extends StatelessWidget {
               icon: Icon(Icons.settings))
         ],
       ),
-
       body: Column(
         children: [
           SizedBox(height: ScreenConstants.height * 0.02),

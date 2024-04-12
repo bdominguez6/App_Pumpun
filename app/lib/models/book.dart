@@ -26,7 +26,21 @@ class Book {
   final Record record;
   // para usarlo: IconData(ICON, fontFamily: 'MaterialIcons');
   int icon = 0xe1f0; // Temporal, debería ser una ruta
-}
+
+  /// Method that returns the genders as a string
+  String get getGenders {
+    List<String> genreListAux = [];
+
+    for (var genreAux in genreList) {
+      String genderSplited = genreAux.toString().split('.').last;
+      String genderCapitalized = genderSplited.substring(0, 1).toUpperCase() +
+          genderSplited.substring(1);
+
+      genreListAux.add(genderCapitalized);
+    }
+    return genreListAux.join(', ');
+  }
+} // note: End class
 
 enum Record {
   none,

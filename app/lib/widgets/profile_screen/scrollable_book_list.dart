@@ -1,6 +1,7 @@
+import 'package:app/constants/screen_constants.dart';
+import 'package:app/controllers/common/common_controller.dart';
 import 'package:app/widgets/profile_screen/book_portrait.dart';
 import 'package:flutter/material.dart';
-
 import '../../models/book.dart';
 
 /// Lista representada de forma scrolleable.
@@ -35,21 +36,28 @@ class ScrollableBookList extends StatelessWidget {
                 BookPortrait(
                   book: books[index * 2],
                   width: width * 0.4,
-                  height: height * 0.5,
-                  action: () {},
+                  height: ScreenConstants.height * 0.2,
+                  action: () => CommonController.openBookProfileScreen(
+                    context: context,
+                    book: books[index * 2],
+                  ),
                 ),
                 if (index * 2 + 1 < books.length)
                   BookPortrait(
                     book: books[index * 2 + 1],
                     width: width * 0.4,
-                    height: height * 0.5,
-                    action: () {},
+                    height: ScreenConstants.height * 0.2,
+                    action: () => CommonController.openBookProfileScreen(
+                      context: context,
+                      book: books[index * 2 + 1],
+                    ),
                   ),
               ],
             ),
           );
         },
-        separatorBuilder: (context, index) => SizedBox(height: height * 0.1666),
+        separatorBuilder: (context, index) =>
+            SizedBox(height: ScreenConstants.height * 0.066),
       ),
     );
   }

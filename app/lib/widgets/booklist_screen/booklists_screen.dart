@@ -13,6 +13,7 @@ import '../../models/user.dart';
 class BookListsScreen extends StatefulWidget {
   BookListsScreen({super.key});
 
+  //user created for testing this class
   User? user = DummyDavid().userDummy;
 
   @override
@@ -36,8 +37,36 @@ class _BookListsScreenState extends State<BookListsScreen> {
     });
   }
 
+  void _addBookListAtPosition(int index, BookList bookList) {
+    setState(() {
+      widget.user!.createdBookLists.insert(index, bookList);
+    });
+  }
+
+  void _deleteBookList(BookList bookList) {
+    setState(() {
+      int removedIndex = widget.user!.createdBookLists.indexOf(bookList);
+      widget.user!.createdBookLists.remove(bookList);
+
+      //we remove previous snack bars
+      ScaffoldMessenger.of(context).removeCurrentSnackBar();
+      //show a message to possibly undo the removing
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          duration: Duration(seconds: 5),
+          content: Text('${bookList.title} removed '),
+          action: SnackBarAction(
+            label: 'UNDO',
+            onPressed: () {
+              _addBookListAtPosition(removedIndex, bookList);
+            },
+          )));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<BookList> allLists = widget.user!.getAllBookLists;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       //appBar start
@@ -53,59 +82,43 @@ class _BookListsScreenState extends State<BookListsScreen> {
           Expanded(
             //reordable list that has two parts: the default list (inmutable) and the other list ()
             child: ReorderableListView.builder(
-              itemCount: widget.user!.allBookListsToShow.length,
+              itemCount: allLists.length,
               itemBuilder: (context, index) {
-                if (index < widget.user!.defaultBookLists.length) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => BookListDetailsScreen(
-                                    currentList:
-                                        widget.user!.allBookListsToShow[index],
-                                  )));
-                    },
-                    key: ValueKey(widget.user!.allBookListsToShow[index]),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: ScreenConstants.width * 0.04,
-                          vertical: ScreenConstants.height * 0.009),
-                      child: BookListItem(
-                          booklist: widget.user!.allBookListsToShow[index]),
-                    ),
-                  );
-                } else {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => BookListDetailsScreen(
-                                    currentList: widget
-                                        .user!.createdBookLists[index - 2],
-                                  )));
-                    },
-                    key: ValueKey(widget.user!.createdBookLists[index - 2]),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: ScreenConstants.width * 0.04,
-                          vertical: ScreenConstants.height * 0.009),
-                      child: BookListItem(
-                          booklist: widget.user!.allBookListsToShow[index]),
-                    ),
-                  );
-                }
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookListDetailsScreen(
+                            currentList: allLists[index],
+                            onDeleteList: _deleteBookList),
+                      ),
+                    );
+                  },
+                  key: ValueKey(allLists[index]),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: ScreenConstants.width * 0.04,
+                        vertical: ScreenConstants.height * 0.009),
+                    child: BookListItem(booklist: allLists[index]),
+                  ),
+                );
               },
               onReorder: (int oldIndex, int newIndex) {
                 setState(() {
                   if (oldIndex > 1 && newIndex > 1) {
+                    if (newIndex > oldIndex) {
+                      newIndex -= 1;
+                    }
                     BookList value =
                         widget.user!.createdBookLists.removeAt(oldIndex - 2);
                     widget.user!.createdBookLists.insert(newIndex - 2, value);
                   } else {
+                    //we remove previous snack bars
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
                     //show a message when you try to move a item
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        duration: Duration(seconds: 3),
                         content: Text('Can\'t reorder the default lists')));
                   }
                 });

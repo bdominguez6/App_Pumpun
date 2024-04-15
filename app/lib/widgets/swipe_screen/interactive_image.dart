@@ -54,16 +54,16 @@ class InteractiveImage extends StatelessWidget {
           numberOfCardsDisplayed: 2,
           onSwipe: (previousIndex, currentIndex, direction) {
             if (direction == CardSwiperDirection.left) {
-              print('left swipe');
+              print('disliked');
             }
             if (direction == CardSwiperDirection.top) {
-              print('top swipe');
+              print('skipped');
             }
             if (direction == CardSwiperDirection.right) {
-              print('right swipe');
+              print('liked');
             }
             if (direction == CardSwiperDirection.bottom) {
-              print('bottom swipe');
+              print('reading');
             }
             return true;
           },

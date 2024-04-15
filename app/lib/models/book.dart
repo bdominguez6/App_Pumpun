@@ -19,9 +19,9 @@ class Book {
   final String amazonLink;
   final List<Genre> genreList;
   final List<String> authorList;
-  final Record record;
+  Record record;
   // para usarlo: IconData(ICON, fontFamily: 'MaterialIcons');
-  int icon = 0xe1f0; // Temporal, debería ser una ruta
+  int icon = recordIcons[Record.none]!; // Temporal, debería ser una ruta
 
   //Method that returns the authors as a string
   String get getAuthors {

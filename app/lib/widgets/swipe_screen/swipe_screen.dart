@@ -10,13 +10,12 @@ class SwipeScreen extends StatelessWidget {
   SwipeScreen({super.key});
 // TODO: si no funciona el swipe del video, hacerlo con Dismissible -> DismissDirection.horizontal, etc...
 
-  final CardSwiperController cardSwiperController = CardSwiperController();
-
   DummyBrais dummy = DummyBrais();
   List<Book> bookList = [];
 
   @override
   Widget build(BuildContext context) {
+    CardSwiperController cardSwiperController = CardSwiperController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent, // Fondo transparente

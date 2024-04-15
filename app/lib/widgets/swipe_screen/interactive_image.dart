@@ -6,11 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
 class InteractiveImage extends StatelessWidget {
-  const InteractiveImage(
-      {super.key, required this.book, required this.controller});
+  InteractiveImage({super.key, required this.book, required this.controller});
 
   final Book book;
-  final CardSwiperController controller;
+  CardSwiperController controller;
 
   @override
   Widget build(BuildContext context) {

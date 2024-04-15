@@ -46,10 +46,10 @@ class DummyDavid {
     userDummy!.createdBookLists[0].books.insert(0, book1);
     userDummy!.createdBookLists[0].books.insert(0, book1);
     for (int index = 0; index < 4; index++) {
+      userDummy!.defaultBookLists[0].books.insert(0, book1);
+      userDummy!.defaultBookLists[0].books.insert(0, book2);
       userDummy!.defaultBookLists[1].books.insert(0, book1);
       userDummy!.defaultBookLists[1].books.insert(0, book2);
-      userDummy!.defaultBookLists[2].books.insert(0, book1);
-      userDummy!.defaultBookLists[2].books.insert(0, book2);
     }
   }
 

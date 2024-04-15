@@ -15,8 +15,8 @@ class User {
   // TODO: email
   final String name;
   final String image;
+
   List<BookList> defaultBookLists = [
-    BookList(title: "Records", subtitle: "records", color: Colors.transparent),
     BookList(
         title: "Liked books",
         subtitle: "Books that you liked.",
@@ -26,8 +26,9 @@ class User {
         subtitle: "Books that you already read.",
         color: Colors.red),
   ];
+  BookList records = BookList(title: "Records", subtitle: "records", color: Colors.transparent);
   List<BookList> createdBookLists = [];
 
   List<BookList> get allBookListsToShow =>
-      ([...defaultBookLists.sublist(1), ...createdBookLists]);
+      ([...defaultBookLists, ...createdBookLists]);
 }

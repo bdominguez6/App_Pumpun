@@ -1,6 +1,5 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MainButtonAppBar extends StatelessWidget implements PreferredSizeWidget {
   MainButtonAppBar(

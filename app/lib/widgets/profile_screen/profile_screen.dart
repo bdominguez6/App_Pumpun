@@ -1,5 +1,7 @@
 import 'package:app/constants/screen_constants.dart';
+import 'package:app/data/common/configuration.dart';
 import 'package:app/data/dummy/dummy_bryan.dart';
+import 'package:app/widgets/common/main_button_appbar.dart';
 import 'package:app/widgets/profile_screen/empty_list_message.dart';
 import 'package:app/widgets/profile_screen/records_screen.dart';
 import 'package:app/widgets/profile_screen/settings_screen.dart';
@@ -39,47 +41,21 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DummyBryan dummy = DummyBryan();
     // Coge los primeros 6 elementos de la lista de me gusta del usuario
     // List<Book> likedBooks = [];
     List<Book> likedBooks =
-        DummyBryan().user!.defaultBookLists[1].books.sublist(
-              0,
-              DummyBryan().user!.defaultBookLists[1].books.length >= 6
-                  ? 6
-                  : DummyBryan().user!.defaultBookLists[1].books.length,
-            );
+        Configuration.user.defaultBookLists[0].books.sublist(
+      0,
+      Configuration.user.defaultBookLists[0].books.length >= 6
+          ? 6
+          : Configuration.user.defaultBookLists[0].books.length,
+    );
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        // Fondo transparente
-        elevation: 0,
-        // Destabilizer el sombreado
-        leading: Container(
-          margin: const EdgeInsets.all(10),
-          height: ScreenConstants.height * 0.03,
-          width: ScreenConstants.width * 0.078,
-          child: Image.asset('assets/images/icons/icon_64px.png'),
-        ),
-        title: Title(
-          color: Colors.black,
-          child: Text(
-            'Profile',
-            style: TextStyle(
-              fontSize: ScreenConstants.height * 0.035,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        titleSpacing: 0,
-        actions: [
-          IconButton(
-              onPressed: () {
-                _openSettingsScreen(context);
-              },
-              icon: Icon(Icons.settings))
-        ],
+      appBar: MainButtonAppBar(
+        title: 'Profile',
+        buttonIcon: Icon(Icons.settings),
+        buttonMethod: () => _openSettingsScreen(context),
       ),
       body: Column(
         children: [
@@ -87,7 +63,7 @@ class ProfileScreen extends StatelessWidget {
           UserData(
             width: ScreenConstants.width,
             height: ScreenConstants.height,
-            user: dummy.user!,
+            user: Configuration.user,
           ),
           SizedBox(height: ScreenConstants.height * 0.02),
           Container(

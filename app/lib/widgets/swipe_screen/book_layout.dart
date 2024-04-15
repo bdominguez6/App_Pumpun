@@ -18,26 +18,31 @@ class BookLayout extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             /// Image section
-            Container(
-              // ignore: prefer_const_constructors
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(
-                      20.0), // Radio de borde en la esquina inferior izquierda
-                  topRight: Radius.circular(
-                      20.0), // Radio de borde en la esquina inferior derecha
+            Expanded(
+              child: Container(
+                // ignore: prefer_const_constructors
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(
+                        20.0), // Radio de borde en la esquina inferior izquierda
+                    topRight: Radius.circular(
+                        20.0), // Radio de borde en la esquina inferior derecha
+                  ),
                 ),
-              ),
-              padding:
-                  EdgeInsets.fromLTRB(0, ScreenConstants.height * 0.02, 0, 0),
-              width: ScreenConstants.width * 0.65,
-              // height: screenHeight * 0.60,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10.0),
-                  topRight: Radius.circular(10.0),
+                padding:
+                    EdgeInsets.fromLTRB(0, ScreenConstants.height * 0.02, 0, 0),
+                width: ScreenConstants.width * 0.65,
+                // height: screenHeight * 0.60,
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10.0),
+                    topRight: Radius.circular(10.0),
+                  ),
+                  child: Image.asset(
+                    book.cover,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-                child: Image.asset(book.cover),
               ),
             ),
 

@@ -38,9 +38,10 @@ class SwipeScreen extends StatelessWidget {
       body: Column(
         children: [
           /// Image container
-          InteractiveImage(
+          Expanded(
+              child: InteractiveImage(
             book: dummy.book1,
-          ),
+          )),
 
           /// Button container
           Container(

@@ -50,9 +50,8 @@ class _BookListsScreenState extends State<BookListsScreen> {
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Flexible(
+          Expanded(
             //reordable list that has two parts: the default list (inmutable) and the other list ()
-            //TODO *FIX: something is wrong with they keys, try to fix it
             child: ReorderableListView.builder(
               itemCount: widget.user!.allBookListsToShow.length,
               itemBuilder: (context, index) {
@@ -67,7 +66,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
                                         widget.user!.allBookListsToShow[index],
                                   )));
                     },
-                    key: ValueKey(index),
+                    key: ValueKey(widget.user!.allBookListsToShow[index]),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: ScreenConstants.width * 0.04,
@@ -87,7 +86,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
                                         .user!.createdBookLists[index - 2],
                                   )));
                     },
-                    key: ValueKey(index),
+                    key: ValueKey(widget.user!.createdBookLists[index - 2]),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: ScreenConstants.width * 0.04,
@@ -117,26 +116,23 @@ class _BookListsScreenState extends State<BookListsScreen> {
           //TODO: change the message to appear only at certain width
           //if there are less than 4 created list we include the + button after the lists presentation (to fill the empty space)
           if (widget.user!.createdBookLists.length < 4)
-            Padding(
-              padding: EdgeInsets.all(ScreenConstants.width * 0.06),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      _openBooklistScreen();
-                    },
-                    child: const Text(
-                      'Create more lists',
-                      style: TextStyle(
-                        color: Colors.amber,
-                      ),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    _openBooklistScreen();
+                  },
+                  child: const Text(
+                    'Create more lists',
+                    style: TextStyle(
+                      color: Colors.amber,
                     ),
                   ),
-                ],
-              ),
-            )
+                ),
+              ],
+            ),
         ],
       ),
     );

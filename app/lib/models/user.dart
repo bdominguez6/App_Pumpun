@@ -6,20 +6,21 @@ class User {
   User({
     required this.username,
     required this.password,
+    required this.email,
     required this.name,
     required this.image,
   });
 
-  final String username;
-  final String password;
-  // TODO: email
-  final String name;
-  final String image;
+  String username;
+  String password;
+  String email;
+  String name;
+  String image;
 
   List<BookList> defaultBookLists = [
     BookList(
-        title: "Liked books",
-        subtitle: "Books that you liked.",
+        title: "Wishlist books",
+        subtitle: "Books that you want to read.",
         color: Colors.green),
     BookList(
         title: "Read books",

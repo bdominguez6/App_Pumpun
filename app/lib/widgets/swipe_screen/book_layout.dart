@@ -1,8 +1,7 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/models/book.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:app/widgets/common/book_profile_screen/book_profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 /// This class provide the whole interactive image.
 class BookLayout extends StatelessWidget {
@@ -13,6 +12,12 @@ class BookLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => BookProfileScreen(book: book)));
+      },
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

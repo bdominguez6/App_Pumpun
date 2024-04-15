@@ -27,6 +27,11 @@ class Book {
   // para usarlo: IconData(ICON, fontFamily: 'MaterialIcons');
   int icon = 0xe1f0; // Temporal, debería ser una ruta
 
+  //Method that returns the authors as a string
+  String get getAuthors {
+    return authorList.join(', ');
+  }
+
   /// Method that returns the genders as a string
   String get getGenders {
     List<String> genreListAux = [];

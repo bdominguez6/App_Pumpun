@@ -53,7 +53,17 @@ class SwipeScreen extends StatelessWidget {
               color: const Color.fromARGB(255, 191, 0, 255),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: const Text('Button container'),
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    IconData(0xe25b, fontFamily: 'MaterialIcons'),
+                    color: Colors.amber,
+                  ),
+                )
+              ],
+            ),
             alignment: Alignment.center,
           ),
         ],

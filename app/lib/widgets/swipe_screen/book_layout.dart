@@ -94,7 +94,7 @@ class BookLayout extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            book.authorList.join(', '),
+                            book.getAuthors,
                             style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 12,
@@ -107,7 +107,6 @@ class BookLayout extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            // book.genre[0].name,
                             book.getGenders,
                             style: const TextStyle(
                               color: Colors.white70,

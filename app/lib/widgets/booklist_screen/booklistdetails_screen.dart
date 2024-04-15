@@ -1,14 +1,17 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/models/booklist.dart';
 import 'package:app/widgets/booklist_screen/book_item.dart';
+import 'package:app/widgets/common/book_profile_screen/book_profile_screen.dart';
 import 'package:app/widgets/common/goback_button_appbar.dart';
 import 'package:flutter/material.dart';
 
 //screen to show all the books of a list
 class BookListDetailsScreen extends StatelessWidget {
-  BookListDetailsScreen({super.key, required this.currentList});
+  BookListDetailsScreen(
+      {super.key, required this.currentList, required this.onDeleteList});
 
   final BookList currentList;
+  final Function(BookList bookList) onDeleteList;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +19,10 @@ class BookListDetailsScreen extends StatelessWidget {
       appBar: GoBackButtonAppBar(
         title: currentList.title,
         buttonIcon: Icon(Icons.delete),
-        //TODO THE DELETE LIST
-        buttonMethod: () {},
+        buttonMethod: () {
+          onDeleteList(currentList);
+          Navigator.pop(context);
+        },
       ),
       //we check if the list has books. if not, we print a message
       body: currentList.books.isEmpty
@@ -32,7 +37,11 @@ class BookListDetailsScreen extends StatelessWidget {
                 itemCount: currentList.books.length,
                 itemBuilder: (context, index) => GestureDetector(
                   onTap: () {
-                    //TODO call the book prophile screen when a book is tapped);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BookProfileScreen(
+                                book: currentList.books[index])));
                   },
                   child: Padding(
                     padding: EdgeInsets.symmetric(

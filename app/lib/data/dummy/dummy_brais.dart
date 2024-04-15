@@ -1,4 +1,5 @@
 import 'package:app/models/book.dart';
+import 'package:app/models/enums.dart';
 import 'package:app/models/user.dart';
 
 class DummyBrais {

@@ -1,4 +1,5 @@
 import 'package:app/constants/screen_constants.dart';
+import 'package:app/models/enums.dart';
 import 'package:app/widgets/common/book_profile_screen/gender_card.dart';
 import 'package:app/widgets/common/goback_appbar.dart';
 import 'package:flutter/material.dart';
@@ -84,8 +85,8 @@ class BookProfileScreen extends StatelessWidget {
             ),
             SizedBox(height: ScreenConstants.height * 0.02),
             Padding(
-              padding:
-              EdgeInsets.fromLTRB(ScreenConstants.width * 0.05, 0, ScreenConstants.width * 0.05, ScreenConstants.height * 0.05),
+              padding: EdgeInsets.fromLTRB(ScreenConstants.width * 0.05, 0,
+                  ScreenConstants.width * 0.05, ScreenConstants.height * 0.05),
               child: Text(
                 book.description,
                 style: TextStyle(fontSize: ScreenConstants.width * 0.05),

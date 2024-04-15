@@ -1,5 +1,6 @@
 import 'package:app/models/book.dart';
 import 'package:app/models/booklist.dart';
+import 'package:app/models/enums.dart';
 import 'package:app/models/user.dart';
 import 'package:flutter/material.dart';
 

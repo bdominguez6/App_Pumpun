@@ -1,3 +1,4 @@
+import 'package:app/models/enums.dart';
 import 'package:flutter/material.dart';
 
 class Book {
@@ -9,12 +10,7 @@ class Book {
       required this.genreList,
       this.amazonLink = '',
       required this.record}) {
-    icon = switch (record) {
-      Record.none => 0xe1f0, // do_not_touch
-      Record.liked => 0xe25b, // favorite
-      Record.disliked => 0xe1eb, // do_not_disturb_alt
-      Record.read => 0xe0ef // book
-    };
+    icon = recordIcons[record]!;
   }
 
   final String title;
@@ -47,16 +43,4 @@ class Book {
   }
 } // note: End class
 
-enum Record {
-  none,
-  liked,
-  disliked,
-  read,
-}
 
-enum Genre {
-  scifi,
-  romance,
-  horror,
-  suspense,
-}

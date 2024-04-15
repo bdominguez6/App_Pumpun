@@ -1,20 +1,17 @@
 import 'package:app/constants/screen_constants.dart';
-import 'package:app/data/dummy/dummy_bryan.dart';
+import 'package:app/widgets/common/goback_appbar.dart';
 import 'package:app/widgets/profile_screen/empty_list_message.dart';
 import 'package:app/widgets/profile_screen/scrollable_book_list.dart';
 import 'package:flutter/material.dart';
 
-class RecordsScreen extends StatelessWidget {
-  DummyBryan dummy = DummyBryan();
+import '../../data/common/configuration.dart';
 
+class RecordsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: BackButton(),
-        title: Text('Records'),
-      ),
-      body: dummy.user!.defaultBookLists[0].books.isEmpty
+      appBar: GoBackAppBar(title: 'Records'),
+      body: Configuration.user.records.books.isEmpty
           ? EmptyListMessage(
               width: ScreenConstants.width,
               height: ScreenConstants.height,
@@ -25,7 +22,7 @@ class RecordsScreen extends StatelessWidget {
               child: ScrollableBookList(
                   width: ScreenConstants.width,
                   height: ScreenConstants.height * 0.78,
-                  books: dummy.user!.defaultBookLists[0].books),
+                  books: Configuration.user.records.books),
             ),
     );
   }

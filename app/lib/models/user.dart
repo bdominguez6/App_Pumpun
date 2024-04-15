@@ -15,6 +15,7 @@ class User {
   // TODO: email
   final String name;
   final String image;
+
   List<BookList> defaultBookLists = [
     BookList(
         title: "Liked books",
@@ -25,6 +26,7 @@ class User {
         subtitle: "Books that you already read.",
         color: Colors.red),
   ];
+
   BookList records = BookList(
       title: "Records", subtitle: "records", color: Colors.transparent);
 

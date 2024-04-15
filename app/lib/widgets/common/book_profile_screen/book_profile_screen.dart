@@ -1,5 +1,6 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/widgets/common/book_profile_screen/gender_card.dart';
+import 'package:app/widgets/common/goback_appbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/book.dart';
@@ -23,10 +24,7 @@ class BookProfileScreen extends StatelessWidget {
     List<String> genreNames = _trimGenres(genreList: book.genreList);
 
     return Scaffold(
-      appBar: AppBar(
-        leading: BackButton(),
-        title: Text('Book Profile'),
-      ),
+      appBar: GoBackAppBar(title: 'Book Profile'),
       body: SingleChildScrollView(
         child: Column(
           children: [

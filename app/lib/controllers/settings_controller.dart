@@ -12,6 +12,7 @@ class SettingsController {
   AppTheme? themeConfiguration = Configuration.theme;
 
   bool changeSettings(BuildContext context) {
+    print('AAAAAAAAAAAAAAAAAAAA');
     bool error = false;
     String newEmail = emailController.text;
     String newPassword = passwordController.text;
@@ -48,6 +49,7 @@ class SettingsController {
         );
       }
     }
-      return error;
+    Configuration.theme = themeConfiguration!;
+    return error;
   }
 }

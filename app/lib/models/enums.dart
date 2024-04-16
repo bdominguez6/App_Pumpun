@@ -12,10 +12,12 @@ enum Record {
 }
 
 enum Genre {
-  scifi,
-  romance,
-  horror,
-  suspense,
+  scifi(0),
+  romance(1),
+  horror(2),
+  suspense(3);
+  final num value;
+  const Genre(this.value);
 }
 
 var recordIcons = {

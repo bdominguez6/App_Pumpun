@@ -1,13 +1,17 @@
 import 'package:app/controllers/settings_controller.dart';
 import 'package:app/models/enums.dart';
-import 'package:app/widgets/profile_screen/circular_image.dart';
-import 'package:app/widgets/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/screen_constants.dart';
 import '../../data/common/configuration.dart';
 
 class SettingsScreen extends StatefulWidget {
+  const SettingsScreen(
+      {super.key, required this.controller, required this.onChangeSettings});
+
+  final void Function() onChangeSettings;
+  final SettingsController controller;
+
   @override
   State<StatefulWidget> createState() {
     return _SettingsScreenState();
@@ -15,27 +19,12 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  SettingsController controller = SettingsController();
-
   @override
   Widget build(BuildContext context) {
+    // print(Configuration.theme);
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(onPressed: () {
-          bool error = false;
-          setState(() {
-            error = controller.changeSettings(context);
-          });
-          if (!error) {
-            Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ProfileScreen(),
-              ),
-            );
-          }
-        }),
+        leading: BackButton(onPressed: () => widget.onChangeSettings()),
         title: Text('Settings'),
       ),
       body: SingleChildScrollView(
@@ -47,7 +36,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               // Username
               TextField(
-                controller: controller.usernameController,
+                controller: widget.controller.usernameController,
                 cursorColor: Colors.amber,
                 decoration: InputDecoration()
                     .applyDefaults(
@@ -65,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SizedBox(height: ScreenConstants.height * 0.02),
               // Password
               TextField(
-                controller: controller.passwordController,
+                controller: widget.controller.passwordController,
                 obscureText: true,
                 cursorColor: Colors.amber,
                 //obscureText: true,
@@ -84,7 +73,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SizedBox(height: ScreenConstants.height * 0.02),
               // Email
               TextField(
-                controller: controller.emailController,
+                controller: widget.controller.emailController,
                 cursorColor: Colors.amber,
                 decoration: InputDecoration()
                     .applyDefaults(
@@ -102,7 +91,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SizedBox(height: ScreenConstants.height * 0.02),
               // Name
               TextField(
-                controller: controller.nameController,
+                controller: widget.controller.nameController,
                 cursorColor: Colors.amber,
                 decoration: InputDecoration()
                     .applyDefaults(
@@ -131,10 +120,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   activeColor: Colors.amber,
                   title: Text('Light Theme'),
                   value: AppTheme.light,
-                  groupValue: controller.themeConfiguration,
+                  groupValue: widget.controller.themeConfiguration,
                   onChanged: (AppTheme? value) {
                     setState(() {
-                      controller.themeConfiguration = value;
+                      widget.controller.themeConfiguration = value;
                     });
                   }),
               // Dark
@@ -142,10 +131,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   activeColor: Colors.amber,
                   title: Text('Dark Theme'),
                   value: AppTheme.dark,
-                  groupValue: controller.themeConfiguration,
+                  groupValue: widget.controller.themeConfiguration,
                   onChanged: (AppTheme? value) {
                     setState(() {
-                      controller.themeConfiguration = value;
+                      widget.controller.themeConfiguration = value;
                     });
                   }),
               // Device Settings
@@ -153,10 +142,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   activeColor: Colors.amber,
                   title: Text('Use device settings'),
                   value: AppTheme.prefered,
-                  groupValue: controller.themeConfiguration,
+                  groupValue: widget.controller.themeConfiguration,
                   onChanged: (AppTheme? value) {
                     setState(() {
-                      controller.themeConfiguration = value;
+                      widget.controller.themeConfiguration = value;
                     });
                   }),
             ],

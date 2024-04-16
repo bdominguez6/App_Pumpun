@@ -30,7 +30,7 @@ class DummyDavid {
       authorList: [
         'Miguel de Cervantes',
         'Miguel de Cervantes',
-        'Miguel de Cervantes'
+        'Miguel de Cervantes',
       ],
       genreList: [Genre.romance, Genre.horror],
       record: Record.disliked,

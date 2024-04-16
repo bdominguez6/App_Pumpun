@@ -1,5 +1,7 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/controllers/common/shared_preferences_controller.dart';
+import 'package:app/database/book_service.dart';
+import 'package:app/database/sqlite_service.dart';
 import 'package:app/widgets/booklist_screen/booklists_screen.dart';
 import 'package:app/widgets/profile_screen/profile_screen.dart';
 import 'package:app/widgets/search_screen/search_screen.dart';
@@ -33,7 +35,11 @@ class _MyHomePageControllerState extends State<MyHomePageController> {
   void initState() {
     super.initState();
     setState(() {
+      //init shared preferences
       SharedPreferencesController().loadUser();
+      //init db
+      SQLiteService().initializeDB();
+      //add first data (books, listbooks, put that books on the list, add genres and authors)
     });
   }
 

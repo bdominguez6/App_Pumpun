@@ -13,6 +13,7 @@ class DummyBrais {
     userDummy = User(
       username: 'ManzanaPlatano231',
       password: 'password',
+      email: 'amksef@pumpunhost.com',
       name: 'Mario Gonzalez Iglesias',
       image: 'assets/images/icons/icon_512px.png',
     );

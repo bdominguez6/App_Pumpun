@@ -1,7 +1,7 @@
 import 'package:app/controllers/settings_controller.dart';
 import 'package:app/models/enums.dart';
+import 'package:app/widgets/profile_screen/circular_image.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../constants/screen_constants.dart';
 import '../../data/common/configuration.dart';
@@ -20,7 +20,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(onPressed: () => Navigator.pop(context)),
+        leading: BackButton(
+            onPressed: () => setState(() {
+                  controller.changeSettings(context);
+                })),
         title: Text('Settings'),
       ),
       body: SingleChildScrollView(
@@ -31,6 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextField(
+                controller: controller.usernameController,
                 cursorColor: Colors.amber,
                 decoration: InputDecoration()
                     .applyDefaults(
@@ -47,8 +51,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               SizedBox(height: ScreenConstants.height * 0.02),
               TextField(
+                controller: controller.passwordController,
                 cursorColor: Colors.amber,
-                obscureText: true,
+                //obscureText: true,
                 decoration: InputDecoration()
                     .applyDefaults(
                       InputDecorationTheme(),
@@ -63,6 +68,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               SizedBox(height: ScreenConstants.height * 0.02),
               TextField(
+                controller: controller.emailController,
+                cursorColor: Colors.amber,
+                decoration: InputDecoration()
+                    .applyDefaults(
+                      InputDecorationTheme(),
+                    )
+                    .copyWith(
+                      labelStyle: TextStyle(
+                        fontSize: ScreenConstants.height * 0.03,
+                        color: Colors.amber,
+                      ),
+                      hintText: Configuration.user.email,
+                      labelText: 'Email',
+                    ),
+              ),
+              SizedBox(height: ScreenConstants.height * 0.02),
+              TextField(
+                controller: controller.nameController,
                 obscureText: true,
                 cursorColor: Colors.amber,
                 decoration: InputDecoration()
@@ -116,15 +139,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       controller.themeConfiguration = value;
                     });
                   }),
-              SizedBox(height: ScreenConstants.height * 0.03),
-              Text(
-                'Profile Picture',
-                style: TextStyle(
-                  color: Colors.amber,
-                  fontSize: ScreenConstants.height * 0.03,
-                ),
-              ),
-              ImagePicker(),
             ],
           ),
         ),

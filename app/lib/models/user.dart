@@ -6,15 +6,16 @@ class User {
   User({
     required this.username,
     required this.password,
+    required this.email,
     required this.name,
     required this.image,
   });
 
-  final String username;
-  final String password;
-  // TODO: email
-  final String name;
-  final String image;
+  String username;
+  String password;
+  String email;
+  String name;
+  String image;
 
   List<BookList> defaultBookLists = [
     BookList(

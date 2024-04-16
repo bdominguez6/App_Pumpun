@@ -10,6 +10,7 @@ class DummyDavid {
     userDummy = User(
       username: 'ManzanaPlatano231',
       password: 'password',
+      email: 'amksef@pumpunhost.com',
       name: 'Mario Gonzalez Iglesias',
       image: 'assets/images/icons/icon_512px.png',
     );
@@ -29,7 +30,7 @@ class DummyDavid {
       authorList: [
         'Miguel de Cervantes',
         'Miguel de Cervantes',
-        'Miguel de Cervantes'
+        'Miguel de Cervantes',
       ],
       genreList: [Genre.romance, Genre.horror],
       record: Record.disliked,

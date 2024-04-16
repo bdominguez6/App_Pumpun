@@ -11,7 +11,7 @@ class SettingsController {
   final nameController = TextEditingController();
   AppTheme? themeConfiguration = Configuration.theme;
 
-  void changeSettings(BuildContext context) {
+  bool changeSettings(BuildContext context) {
     bool error = false;
     String newEmail = emailController.text;
     String newPassword = passwordController.text;
@@ -35,7 +35,7 @@ class SettingsController {
     }
     // 1 mayuscula, 1 minuscula, 1 numero y 8 letras
     if (newPassword.isNotEmpty) {
-      if (newPassword.contains( 
+      if (newPassword.contains(
       RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$'))) {
         Configuration.user.password = newPassword;
       } else {
@@ -48,7 +48,6 @@ class SettingsController {
         );
       }
     }
-      if(!error)
-      Navigator.pop(context);
+      return error;
   }
 }

@@ -31,6 +31,7 @@ class ProfileScreen extends StatelessWidget {
   }
 
   void _openSettingsScreen(BuildContext context) {
+    Navigator.pop(context);
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -38,6 +39,7 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
   }
+
 
   @override
   Widget build(BuildContext context) {

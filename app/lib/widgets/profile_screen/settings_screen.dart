@@ -1,6 +1,7 @@
 import 'package:app/controllers/settings_controller.dart';
 import 'package:app/models/enums.dart';
 import 'package:app/widgets/profile_screen/circular_image.dart';
+import 'package:app/widgets/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/screen_constants.dart';
@@ -20,10 +21,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(
-            onPressed: () => setState(() {
-                  controller.changeSettings(context);
-                })),
+        leading: BackButton(onPressed: () {
+          bool error = false;
+          setState(() {
+            error = controller.changeSettings(context);
+          });
+          if (!error) {
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProfileScreen(),
+              ),
+            );
+          }
+        }),
         title: Text('Settings'),
       ),
       body: SingleChildScrollView(
@@ -33,6 +45,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Username
               TextField(
                 controller: controller.usernameController,
                 cursorColor: Colors.amber,
@@ -50,8 +63,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
               ),
               SizedBox(height: ScreenConstants.height * 0.02),
+              // Password
               TextField(
                 controller: controller.passwordController,
+                obscureText: true,
                 cursorColor: Colors.amber,
                 //obscureText: true,
                 decoration: InputDecoration()
@@ -67,6 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
               ),
               SizedBox(height: ScreenConstants.height * 0.02),
+              // Email
               TextField(
                 controller: controller.emailController,
                 cursorColor: Colors.amber,
@@ -84,9 +100,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
               ),
               SizedBox(height: ScreenConstants.height * 0.02),
+              // Name
               TextField(
                 controller: controller.nameController,
-                obscureText: true,
                 cursorColor: Colors.amber,
                 decoration: InputDecoration()
                     .applyDefaults(
@@ -102,6 +118,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
               ),
               SizedBox(height: ScreenConstants.height * 0.03),
+              // Radio Buttons Theme
               Text(
                 'Theme',
                 style: TextStyle(
@@ -109,6 +126,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   fontSize: ScreenConstants.height * 0.03,
                 ),
               ),
+              // Light
               RadioListTile(
                   activeColor: Colors.amber,
                   title: Text('Light Theme'),
@@ -119,6 +137,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       controller.themeConfiguration = value;
                     });
                   }),
+              // Dark
               RadioListTile(
                   activeColor: Colors.amber,
                   title: Text('Dark Theme'),
@@ -129,6 +148,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       controller.themeConfiguration = value;
                     });
                   }),
+              // Device Settings
               RadioListTile(
                   activeColor: Colors.amber,
                   title: Text('Use device settings'),

@@ -55,7 +55,8 @@ class BookProfileScreen extends StatelessWidget {
               children: [
                 ...genreNames.map((name) => GenreCard(genre: name)),
                 Icon(
-                  IconData(book.icon, fontFamily: 'MaterialIcons'),
+                  IconData(recordIcons[book.record]!,
+                      fontFamily: 'MaterialIcons'),
                   color: Colors.amber,
                 ),
               ],

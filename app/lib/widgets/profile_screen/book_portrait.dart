@@ -1,4 +1,5 @@
 import 'package:app/models/book.dart';
+import 'package:app/models/enums.dart';
 import 'package:flutter/material.dart';
 
 /// [Widget] que representa la miniatura de un libro
@@ -50,7 +51,8 @@ class BookPortrait extends StatelessWidget {
                   ),
                 ),
                 Icon(
-                  IconData(book.icon, fontFamily: 'MaterialIcons'),
+                  IconData(recordIcons[book.record]!,
+                      fontFamily: 'MaterialIcons'),
                   color: Colors.amber,
                 ),
               ],

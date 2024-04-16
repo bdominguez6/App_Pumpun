@@ -34,23 +34,19 @@ class InteractiveImage extends StatelessWidget {
             if (direction == CardSwiperDirection.left) {
               print('${allBooks[previousIndex].title} was disliked');
               allBooks[previousIndex].record = Record.disliked;
-              allBooks[previousIndex].icon = recordIcons[Record.disliked]!;
             }
             if (direction == CardSwiperDirection.top) {
               print('${allBooks[previousIndex].title} was skipped');
               allBooks[previousIndex].record = Record.none;
-              allBooks[previousIndex].icon = recordIcons[Record.none]!;
             }
             if (direction == CardSwiperDirection.right) {
               print('${allBooks[previousIndex].title} was liked');
               allBooks[previousIndex].record = Record.liked;
-              allBooks[previousIndex].icon = recordIcons[Record.liked]!;
               //add the book to the user defaultLists[0]
             }
             if (direction == CardSwiperDirection.bottom) {
               print('${allBooks[previousIndex].title} was mark as reading');
               allBooks[previousIndex].record = Record.read;
-              allBooks[previousIndex].icon = recordIcons[Record.read]!;
               //add the book to the user defaultLists[1]
             }
             return true;

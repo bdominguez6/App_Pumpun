@@ -1,3 +1,5 @@
+import 'package:app/constants/screen_constants.dart';
+import 'package:app/controllers/common/shared_preferences_controller.dart';
 import 'package:app/widgets/booklist_screen/booklists_screen.dart';
 import 'package:app/widgets/profile_screen/profile_screen.dart';
 import 'package:app/widgets/search_screen/search_screen.dart';
@@ -28,18 +30,23 @@ class _MyHomePageControllerState extends State<MyHomePageController> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+  void initState() {
+    super.initState();
+    setState(() {
+      SharedPreferencesController().loadUser();
+    });
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_selectedIndex], // Muestra la pantalla seleccionada
       bottomNavigationBar: Container(
         color: Colors.black,
         child: Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.0382,
-              vertical: screenHeight * 0.01276),
+              horizontal: ScreenConstants.width * 0.0382,
+              vertical: ScreenConstants.height * 0.01276),
           // padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
           child: GNav(
             color: Colors.white,

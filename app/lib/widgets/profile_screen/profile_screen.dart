@@ -1,4 +1,5 @@
 import 'package:app/constants/screen_constants.dart';
+import 'package:app/controllers/settings_controller.dart';
 import 'package:app/data/common/configuration.dart';
 import 'package:app/data/dummy/dummy_bryan.dart';
 import 'package:app/widgets/common/main_button_appbar.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 
 import 'package:app/widgets/profile_screen/scrollable_book_list.dart';
 
+import '../../controllers/common/shared_preferences_controller.dart';
 import '../../models/book.dart';
 
 /// Widget que muestra la pantalla del perfil de usuario.
@@ -18,8 +20,15 @@ import '../../models/book.dart';
 /// información principal del usuario, un [Container] con un texto y un
 /// [TextButton] para acceder al historial y un [ScrollableBookList] con los últimos
 /// libros que le han gustado.
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  @override
+  State<ProfileScreen> createState() {
+    return _ProfileScreenState();
+  }
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final SettingsController settingsController = SettingsController();
 
   void _openRecordsScreen(BuildContext context) {
     Navigator.push(
@@ -34,9 +43,25 @@ class ProfileScreen extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SettingsScreen(),
+        builder: (context) => SettingsScreen(
+          controller: settingsController,
+          onChangeSettings: () => changeSettings(context),
+        ),
       ),
     );
+  }
+
+  void changeSettings(BuildContext context) {
+    bool error = false;
+    setState(() {
+      error = settingsController.changeSettings(context);
+      if (!error) {
+        SharedPreferencesController().saveUser();
+      }
+    });
+    if (!error) {
+      Navigator.pop(context);
+    }
   }
 
   @override

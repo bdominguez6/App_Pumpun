@@ -1,10 +1,12 @@
 import 'package:app/controllers/common/myhomepage_controller.dart';
+import 'package:app/controllers/common/shared_preferences_controller.dart';
 import 'package:app/data/dummy/dummy_bryan.dart';
 import 'package:flutter/material.dart';
 
 import 'constants/screen_constants.dart';
 
 void main() {
+  SharedPreferencesController().loadUser();
   DummyBryan();
   runApp(
     MaterialApp(

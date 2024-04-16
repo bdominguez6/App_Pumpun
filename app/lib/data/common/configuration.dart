@@ -8,6 +8,7 @@ class Configuration {
     password: 'password',
     email: 'amksef@pumpunhost.com',
     name: 'Mario Gonzalez Iglesias',
+    email: 'a@a.com',
     image: 'assets/images/icons/icon_512px.png',
   );
   static AppTheme theme = AppTheme.dark;

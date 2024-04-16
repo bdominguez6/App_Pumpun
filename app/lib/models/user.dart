@@ -19,8 +19,8 @@ class User {
 
   List<BookList> defaultBookLists = [
     BookList(
-        title: "Liked books",
-        subtitle: "Books that you liked.",
+        title: "Wishlist books",
+        subtitle: "Books that you want to read.",
         color: Colors.green),
     BookList(
         title: "Read books",

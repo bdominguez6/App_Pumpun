@@ -10,7 +10,7 @@ class DummyDavid {
     userDummy = User(
       username: 'ManzanaPlatano231',
       password: 'password',
-      email: 'amksef@pumpunhost.com',
+      email: 'a@a.com',
       name: 'Mario Gonzalez Iglesias',
       image: 'assets/images/icons/icon_512px.png',
     );

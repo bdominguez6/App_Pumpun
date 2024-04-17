@@ -86,7 +86,7 @@ class BookLayout extends StatelessWidget {
                     width: ScreenConstants.width * 0.6,
                     child: Divider(
                       color: Theme.of(context).colorScheme.primary.withAlpha(100),
-                      thickness: 1,
+                      thickness: 2,
                       height: 0,
                     ),
                   ),

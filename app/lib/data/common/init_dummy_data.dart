@@ -11,9 +11,9 @@ import 'package:flutter/material.dart';
 
 initData() async {
   //ADD AUTHORS TO THE DATABASE
-  Author author1 = Author(id: 1, name: 'Jane Austen');
-  Author author2 = Author(id: 2, name: 'Miguel de Cervantes');
-  Author author3 = Author(id: 3, name: 'George A.R. Martin');
+  Author author1 = Author(name: 'Jane Austen');
+  Author author2 = Author(name: 'Miguel de Cervantes');
+  Author author3 = Author(name: 'George A.R. Martin');
   AuthorService().createAuthor(author1);
   AuthorService().createAuthor(author2);
   AuthorService().createAuthor(author3);
@@ -82,5 +82,6 @@ initData() async {
     AuthorService().addAuthorToBook(author3, book);
     GenreService().addGenreToBook(Genre.scifi, book);
     BookService().addBookToList(book, bookList2);
+    print('libro numero ${book.id} anhadido');
   }
 }

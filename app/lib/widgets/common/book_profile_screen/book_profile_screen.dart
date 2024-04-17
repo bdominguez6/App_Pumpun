@@ -22,7 +22,7 @@ class BookProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> genreNames = _trimGenres(genreList: book.genreList);
+    List<String> genreNames = _trimGenres(genreList: book.genreList!);
 
     return Scaffold(
       appBar: GoBackAppBar(title: 'Book Profile'),
@@ -44,7 +44,7 @@ class BookProfileScreen extends StatelessWidget {
               padding:
                   EdgeInsets.symmetric(horizontal: ScreenConstants.width * 0.1),
               child: Text(
-                book.authorList.join(", "),
+                book.authorList!.join(", "),
                 style: TextStyle(fontSize: ScreenConstants.width * 0.05),
               ),
             ),

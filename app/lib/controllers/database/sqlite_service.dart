@@ -13,13 +13,13 @@ class SQLiteService {
         /*db.execute(
             'CREATE TABLE user(id INTEGER PRIMARY KEY, username TEXT UNIQUE, name TEXT, email TEXT UNIQUE, image TEXT, password TEXT)');*/
         db.execute(
-            'CREATE TABLE booklist(id INT PRIMARY KEY AUTO_INCREMENT, title TEXT UNIQUE NOT NULL, subtitle TEXT NOT NULL, color INTEGER NOT NULL) ');
+            'CREATE TABLE booklist(id INT AUTO_INCREMENT PRIMARY KEY , title TEXT UNIQUE NOT NULL, subtitle TEXT NOT NULL, color INTEGER NOT NULL) ');
         db.execute(
-            'CREATE TABLE book(id INT AUTO_INCREMENT, title TEXT NOT NULL, cover TEXT NOT NULL, description TEXT NOT NULL, amazonLink TEXT NOT NULL, record TEXT NOT NULL) ');
+            'CREATE TABLE book(id INT AUTO_INCREMENT PRIMARY KEY, title TEXT NOT NULL, cover TEXT NOT NULL, description TEXT NOT NULL, amazonLink TEXT, record TEXT NOT NULL) ');
         db.execute(
             'CREATE TABLE bookonlist ( booklist_id INT, book_id INT, FOREIGN KEY (booklist_id) REFERENCES booklist(id), FOREIGN KEY (book_id) REFERENCES book(id))');
         db.execute(
-            'CREATE TABLE genre(id INT AUTO_INCREMENT, name TEXT NOT NULL)');
+            'CREATE TABLE genre(id INT PRIMARY KEY, name TEXT NOT NULL)');
         db.execute(
             'CREATE TABLE author(id INT AUTO_INCREMENT, name TEXT NOT NULL)');
         db.execute(

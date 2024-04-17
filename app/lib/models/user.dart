@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'booklist.dart';
 
+//unused class as there's only one user
 class User {
   User({
     required this.username,

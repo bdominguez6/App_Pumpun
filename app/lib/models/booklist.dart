@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class BookList {
   BookList({
-    required this.id,
+    this.id,
     required this.title,
     required this.subtitle,
     required this.color,
@@ -14,15 +14,15 @@ class BookList {
       : this.id = item['id'],
         this.title = item['title'],
         this.subtitle = item['subtitle'],
-        this.color = item['color'],
+        this.color = Color(item['color']),
         this.books = books;
 
   //send objects with map form to the data base
   Map<String, Object?> toMap() {
-    return {'id': id, 'title': title, 'subtitle': subtitle, 'color': color};
+    return {'title': title, 'subtitle': subtitle, 'color': color.value};
   }
 
-  final int id;
+  int? id;
   final String title;
   final String subtitle;
   List<Book> books;

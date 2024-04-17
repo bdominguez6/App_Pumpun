@@ -11,7 +11,7 @@ class RecordsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: GoBackAppBar(title: 'Records'),
-      body: Configuration.user.records.books.isEmpty
+      body: Configuration.user.records!.books.isEmpty
           ? EmptyListMessage(
               width: ScreenConstants.width,
               height: ScreenConstants.height,
@@ -22,7 +22,7 @@ class RecordsScreen extends StatelessWidget {
               child: ScrollableBookList(
                   width: ScreenConstants.width,
                   height: ScreenConstants.height * 0.78,
-                  books: Configuration.user.records.books),
+                  books: Configuration.user.records!.books),
             ),
     );
   }

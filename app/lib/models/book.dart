@@ -1,24 +1,25 @@
+import 'package:app/models/author.dart';
 import 'package:app/models/enums.dart';
 import 'package:flutter/material.dart';
 
 class Book {
   Book(
-      {required this.id,
+      {this.id,
       required this.title,
       required this.cover,
       required this.description,
-      required this.authorList,
-      required this.genreList,
+      this.authorList,
+      this.genreList,
       this.amazonLink = '',
-      required this.record}) {}
+      required this.record});
 
-  final int id;
+  int? id;
   final String title;
   final String cover;
   final String description;
   final String amazonLink;
-  final List<Genre> genreList;
-  final List<String> authorList;
+  List<Genre>? genreList;
+  List<String>? authorList;
   Record record;
 
   //icon = recordIcons[record]!;
@@ -37,16 +38,27 @@ class Book {
         authorList = authors,
         record = Record.values[item['record']];
 
+  Map<String, Object?> toMap(bool update) {
+    return {
+      'id': id,
+      'title': title,
+      'cover': cover,
+      'description': description,
+      'amazonLink': amazonLink,
+      'record': record.toString()
+    };
+  }
+
   //Method that returns the authors as a string
   String get getAuthors {
-    return authorList.join(', ');
+    return authorList!.join(', ');
   }
 
   /// Method that returns the genders as a string
   String get getGenders {
     List<String> genreListAux = [];
 
-    for (var genreAux in genreList) {
+    for (var genreAux in genreList!) {
       String genderSplited = genreAux.toString().split('.').last;
       String genderCapitalized = genderSplited.substring(0, 1).toUpperCase() +
           genderSplited.substring(1);

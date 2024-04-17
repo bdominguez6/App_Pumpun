@@ -26,26 +26,29 @@ class MainButtonAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Image.asset('assets/images/icons/icon_64px.png'),
       ),
       title: Title(
-        color: Colors.black,
+        color: Theme.of(context).colorScheme.primary,
         child: Text(
           title,
           style: TextStyle(
             fontSize: ScreenConstants.height * 0.028,
             fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.outline,
           ),
         ),
       ),
       titleSpacing: 0,
       actions: [
         IconButton(
-            onPressed: () {
-              buttonMethod();
-            },
-            icon: buttonIcon)
+          onPressed: () {
+            buttonMethod();
+          },
+          icon: buttonIcon,
+          color: Theme.of(context).colorScheme.outline,
+        )
       ],
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

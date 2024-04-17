@@ -100,12 +100,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   'Last Liked',
                   style: TextStyle(
                     fontSize: ScreenConstants.height * 0.04,
+                    color: Theme.of(context).colorScheme.outline,
                   ),
                 ),
                 TextButton(
-                  style: const ButtonStyle(
-                      foregroundColor:
-                          MaterialStatePropertyAll<Color>(Colors.amber)),
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStatePropertyAll<Color>(
+                        Theme.of(context).colorScheme.tertiary),
+                  ),
                   onPressed: () {
                     _openRecordsScreen(context);
                   },

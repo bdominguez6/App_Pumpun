@@ -8,7 +8,7 @@ import 'package:app/widgets/common/main_button_appbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/user.dart';
-
+// TODO: hacer
 //list of lists
 class BookListsScreen extends StatefulWidget {
   BookListsScreen({super.key});
@@ -117,7 +117,7 @@ class _BookListsScreenState extends State<BookListsScreen> {
                     //we remove previous snack bars
                     ScaffoldMessenger.of(context).removeCurrentSnackBar();
                     //show a message when you try to move a item
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar( const SnackBar(
                         duration: Duration(seconds: 3),
                         content: Text('Can\'t reorder the default lists')));
                   }
@@ -137,10 +137,10 @@ class _BookListsScreenState extends State<BookListsScreen> {
                   onPressed: () {
                     _openBooklistScreen();
                   },
-                  child: const Text(
+                  child: Text(
                     'Create more lists',
                     style: TextStyle(
-                      color: Colors.amber,
+                      color: Theme.of(context).colorScheme.tertiary,
                     ),
                   ),
                 ),

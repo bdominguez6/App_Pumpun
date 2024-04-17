@@ -14,7 +14,7 @@ class BookListItem extends StatelessWidget {
     currentBookCount = booklist.books.length;
     return Container(
       decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 49, 47, 47),
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(ScreenConstants.width * 0.04),
           /*border: Border.all(
             color: booklist.color,
@@ -39,15 +39,24 @@ class BookListItem extends StatelessWidget {
               children: [
                 Text(
                   booklist.title,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
                 ),
                 Text(
                   booklist.subtitle,
-                  style: const TextStyle(color: Colors.grey),
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.surface),
                 ),
               ],
             ),
-            Text('$currentBookCount books'),
+            Text(
+              '$currentBookCount books',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.outline,
+              ),
+            ),
           ],
         ),
       ),

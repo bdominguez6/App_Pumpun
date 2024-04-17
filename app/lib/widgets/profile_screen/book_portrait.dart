@@ -27,7 +27,7 @@ class BookPortrait extends StatelessWidget {
     return InkWell(
       onTap: action,
       child: Container(
-        color: Color.fromARGB(150, 50, 50, 50),
+        color: Theme.of(context).colorScheme.secondary,
         child: Column(
           children: [
             SizedBox(height: height * 0.1333),
@@ -47,11 +47,12 @@ class BookPortrait extends StatelessWidget {
                   clippedTitle,
                   style: TextStyle(
                     fontSize: height * 0.0833,
+                    color: Theme.of(context).colorScheme.outline,
                   ),
                 ),
                 Icon(
                   IconData(book.icon, fontFamily: 'MaterialIcons'),
-                  color: Colors.amber,
+                  color: Theme.of(context).colorScheme.tertiary,
                 ),
               ],
             ),

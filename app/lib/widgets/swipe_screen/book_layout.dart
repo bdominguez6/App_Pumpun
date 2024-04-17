@@ -53,9 +53,9 @@ class BookLayout extends StatelessWidget {
 
             /// Book description section
             Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 42, 42, 42),
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(
                       10.0), // Radio de borde en la esquina inferior izquierda
                   bottomRight: Radius.circular(
@@ -73,10 +73,10 @@ class BookLayout extends StatelessWidget {
                     margin: EdgeInsets.all(ScreenConstants.width * 0.02),
                     child: Text(
                       book.title,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
+                        color: Theme.of(context).colorScheme.outline,
                       ),
                     ),
                   ),
@@ -84,8 +84,8 @@ class BookLayout extends StatelessWidget {
                   /// Horizontal divider line
                   SizedBox(
                     width: ScreenConstants.width * 0.6,
-                    child: const Divider(
-                      color: Color.fromARGB(100, 0, 0, 0),
+                    child: Divider(
+                      color: Theme.of(context).colorScheme.primary.withAlpha(100),
                       thickness: 1,
                       height: 0,
                     ),
@@ -100,8 +100,8 @@ class BookLayout extends StatelessWidget {
                         Expanded(
                           child: Text(
                             book.getAuthors,
-                            style: const TextStyle(
-                              color: Colors.white70,
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.outline.withOpacity(0.7),
                               fontSize: 12,
                               // fontWeight: FontWeight.bold,
                             ),
@@ -113,8 +113,8 @@ class BookLayout extends StatelessWidget {
                         Expanded(
                           child: Text(
                             book.getGenders,
-                            style: const TextStyle(
-                              color: Colors.white70,
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.outline.withOpacity(0.7),
                               fontSize: 12,
                               // fontWeight: FontWeight.bold,
                             ),

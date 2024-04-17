@@ -21,12 +21,13 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Image.asset('assets/images/icons/icon_64px.png'),
       ),
       title: Title(
-        color: Colors.black,
+        color: Theme.of(context).colorScheme.primary,
         child: Text(
           title,
           style: TextStyle(
             fontSize: ScreenConstants.height * 0.028,
             fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.outline,
           ),
         ),
       ),
@@ -34,5 +35,5 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

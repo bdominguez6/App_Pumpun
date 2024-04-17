@@ -8,11 +8,19 @@ class GoBackAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: BackButton(),
-      title: Text(title),
+      backgroundColor: Colors.transparent,
+      leading: BackButton(
+        color: Theme.of(context).colorScheme.outline,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.outline,
+        ),
+      ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

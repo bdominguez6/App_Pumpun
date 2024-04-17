@@ -35,12 +35,18 @@ class UserData extends StatelessWidget {
           SizedBox(height: width * 0.025),
           Text(
             user.username,
-            style: TextStyle(fontSize: height * 0.0285),
+            style: TextStyle(
+              fontSize: height * 0.0285,
+              color: Theme.of(context).colorScheme.outline,
+            ),
           ),
           SizedBox(height: height * 0.00625),
           Text(
             user.name,
-            style: TextStyle(fontSize: height * 0.02),
+            style: TextStyle(
+              fontSize: height * 0.02,
+              color: Theme.of(context).colorScheme.outline,
+            ),
           ),
         ],
       ),

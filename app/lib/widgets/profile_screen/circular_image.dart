@@ -22,10 +22,10 @@ class CircularImage extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: Theme.of(context).colorScheme.primary,
         shape: BoxShape.circle,
         border: Border.all(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.outline,
           width: width * 0.01,
         ),
         image: DecorationImage(

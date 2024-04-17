@@ -18,7 +18,7 @@ class EmptyListMessage extends StatelessWidget {
           'The list is empty, go swipe some books!',
           style: TextStyle(
             fontSize: ScreenConstants.height * 0.02,
-            color: Color.fromARGB(100, 255, 255, 255),
+            color: Theme.of(context).colorScheme.surface,
           ),
         ),
       ),

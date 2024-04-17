@@ -11,11 +11,18 @@ class GenreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       // 255, 193, 7
-      color: Color.fromARGB(150, 255, 193, 7),
+      color: Theme.of(context).colorScheme.tertiary.withOpacity(0.6),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: ScreenConstants.height * 0.008,
+        padding: EdgeInsets.symmetric(
+            vertical: ScreenConstants.height * 0.008,
             horizontal: ScreenConstants.width * 0.04),
-        child: Text(genre.capitalize(), style: TextStyle(fontSize: ScreenConstants.height * 0.018),),
+        child: Text(
+          genre.capitalize(),
+          style: TextStyle(
+            fontSize: ScreenConstants.height * 0.018,
+            color: Theme.of(context).colorScheme.outline,
+          ),
+        ),
       ),
     );
   }

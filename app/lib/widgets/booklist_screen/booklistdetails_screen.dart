@@ -18,7 +18,7 @@ class BookListDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: GoBackButtonAppBar(
         title: currentList.title,
-        buttonIcon: Icon(Icons.delete),
+        buttonIcon: const Icon(Icons.delete),
         buttonMethod: () {
           onDeleteList(currentList);
           Navigator.pop(context);
@@ -26,7 +26,7 @@ class BookListDetailsScreen extends StatelessWidget {
       ),
       //we check if the list has books. if not, we print a message
       body: currentList.books.isEmpty
-          ? Center(
+          ? const Center(
               child: Text('Add new books to this list to be shown here'),
             )
           : Flexible(

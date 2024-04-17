@@ -42,16 +42,16 @@ class _MyHomePageControllerState extends State<MyHomePageController> {
     return Scaffold(
       body: _screens[_selectedIndex], // Muestra la pantalla seleccionada
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: Theme.of(context).colorScheme.primary,
         child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: ScreenConstants.width * 0.0382,
               vertical: ScreenConstants.height * 0.01276),
           // padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
           child: GNav(
-            color: Colors.white,
-            activeColor: Colors.amber,
-            tabBackgroundColor: Color.fromARGB(255, 56, 55, 55),
+            color: Theme.of(context).colorScheme.outline,
+            activeColor: Theme.of(context).colorScheme.tertiary,
+            tabBackgroundColor: Theme.of(context).colorScheme.secondary,
             gap: 9,
             padding: EdgeInsets.all(16),
             tabs: [

@@ -9,12 +9,6 @@ class SharedPreferencesController{
       Configuration.user.password = prefs.getString('password') ?? '123456aB';
       Configuration.user.email = prefs.getString('email') ?? 'mariomanuel@pumpunhost.com';
       Configuration.user.name = prefs.getString('name') ?? 'Mario Manuel Gonzalez';
-      // print(Configuration.theme);
-      // print(AppTheme.values.byName(prefs.getString('theme') ?? 'light'));
-
-      Configuration.theme = AppTheme.values.byName(prefs.getString('theme') ?? 'dark');
-
-      // print(Configuration.theme);
     }
 
     void saveUser() async {
@@ -23,7 +17,6 @@ class SharedPreferencesController{
       prefs.setString('password', Configuration.user.password);
       prefs.setString('email', Configuration.user.email);
       prefs.setString('name', Configuration.user.name);
-      prefs.setString('theme', Configuration.theme.name);
     }
 
 }

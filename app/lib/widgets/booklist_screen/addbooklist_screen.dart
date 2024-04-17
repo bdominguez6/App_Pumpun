@@ -1,5 +1,6 @@
 import 'package:app/constants/screen_constants.dart';
 import 'package:app/models/booklist.dart';
+import 'package:app/widgets/common/goback_appbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -9,6 +10,7 @@ class AddBooklistScreen extends StatefulWidget {
   const AddBooklistScreen({super.key, required this.onAddBooklist});
 
   final void Function(BookList booklist) onAddBooklist;
+
   @override
   State<AddBooklistScreen> createState() {
     return _AddBooklistScreen();
@@ -36,10 +38,7 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: BackButton(),
-        title: Text('New list'),
-      ),
+      appBar: GoBackAppBar(title: 'New list'),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -52,7 +51,19 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'List title'),
+                  cursorColor: Theme.of(context).colorScheme.tertiary,
+                  style: TextStyle(color: Theme.of(context).colorScheme.outline,
+                      decorationColor: Theme.of(context).colorScheme.outline),
+                  decoration: const InputDecoration()
+                      .applyDefaults(
+                        const InputDecorationTheme(),
+                      )
+                      .copyWith(
+                        labelStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.tertiary,
+                        ),
+                        labelText: 'List title',
+                      ),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter the list name.';
@@ -67,7 +78,19 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Subtitle'),
+                  cursorColor: Theme.of(context).colorScheme.tertiary,
+                  style: TextStyle(color: Theme.of(context).colorScheme.outline,
+                      decorationColor: Theme.of(context).colorScheme.outline),
+                  decoration: const InputDecoration()
+                      .applyDefaults(
+                        const InputDecorationTheme(),
+                      )
+                      .copyWith(
+                        labelStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.tertiary,
+                        ),
+                        labelText: 'Subtitle',
+                      ),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter the subtitle.';
@@ -75,7 +98,6 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                     if (value.length > 30) {
                       return 'Subtitle is too long';
                     }
-
                     return null;
                   },
                   onSaved: (value) {
@@ -87,15 +109,38 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
                 // flutter pub add flutter_colorpicker
                 Text(
                   'Choose a Color',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
                 ),
                 SizedBox(height: ScreenConstants.height * 0.02),
-                ColorPicker(
-                    pickerColor: _color,
-                    onColorChanged: (color) => {_color = color}),
+                Theme(
+                  data: ThemeData(
+                    canvasColor: Theme.of(context).colorScheme.secondary,
+                    textTheme: TextTheme(
+                      titleMedium: TextStyle(
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
+                      bodyLarge: TextStyle(
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
+                      bodyMedium: TextStyle(
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
+                    ),
+                  ),
+                  child: ColorPicker(
+                      pickerColor: _color,
+                      onColorChanged: (color) => {_color = color}),
+                ),
                 SizedBox(height: ScreenConstants.height * 0.01),
                 TextButton(
                   onPressed: _submitForm,
-                  child: Text('Create'),
+                  child: Text(
+                    'Create',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.tertiary),
+                  ),
                 ),
               ],
             ),

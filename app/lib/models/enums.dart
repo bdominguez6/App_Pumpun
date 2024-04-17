@@ -1,8 +1,8 @@
-enum AppTheme {
-  light,
-  dark,
-  prefered,
-}
+// enum AppTheme {
+//   light,
+//   dark,
+//   prefered,
+// }
 
 enum Record {
   none,

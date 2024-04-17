@@ -2,12 +2,14 @@ import 'package:app/constants/screen_constants.dart';
 import 'package:app/data/dummy/dummy_brais.dart';
 import 'package:app/models/book.dart';
 import 'package:app/models/enums.dart';
+import 'package:app/widgets/common/main_appbar.dart';
 import 'package:app/widgets/swipe_screen/interactive_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
 class SwipeScreen extends StatelessWidget {
   SwipeScreen({super.key});
+
 // TODO: si no funciona el swipe del video, hacerlo con Dismissible -> DismissDirection.horizontal, etc...
 
   DummyBrais dummy = DummyBrais();
@@ -17,27 +19,7 @@ class SwipeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     CardSwiperController cardSwiperController = CardSwiperController();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent, // Fondo transparente
-        elevation: 0, // Deshabilitar el sombreado
-        leading: Container(
-          margin: const EdgeInsets.all(10),
-          height: 32,
-          width: 32,
-          child: Image.asset('assets/images/icons/icon_64px.png'),
-        ),
-        title: Title(
-          color: Colors.black,
-          child: const Text(
-            'Discover Books',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        titleSpacing: 0,
-      ),
+      appBar: MainAppBar(title: 'Discover Books'),
       body: Column(
         children: [
           // Image container
@@ -94,15 +76,24 @@ class swipeMenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10),
+      padding: EdgeInsets.only(
+        bottom: ScreenConstants.height * 0.05,
+        left: ScreenConstants.width * 0.023,
+        right: ScreenConstants.width * 0.023,
+      ),
       child: FloatingActionButton(
         onPressed: onAdd,
         shape: CircleBorder(),
-        backgroundColor: Color.fromARGB(255, 205, 203, 203),
-        elevation: 50,
-        splashColor: Colors.amber,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        elevation: 0,
+        hoverColor: Colors.blue,
+        splashColor: Theme.of(context).colorScheme.tertiary,
         child: Icon(
-          IconData(recordIcons[record]!, fontFamily: 'MaterialIcons'),
+          IconData(
+            recordIcons[record]!,
+            fontFamily: 'MaterialIcons',
+          ),
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
     );

@@ -15,13 +15,27 @@ class GoBackButtonAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: BackButton(),
-      title: Text(title),
+      backgroundColor: Colors.transparent,
+      leading: BackButton(
+        color: Theme.of(context).colorScheme.outline,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.outline,
+        ),
+      ),
       titleSpacing: 0,
-      actions: [IconButton(onPressed: buttonMethod, icon: buttonIcon)],
+      actions: [
+        IconButton(
+          onPressed: buttonMethod,
+          icon: buttonIcon,
+          color: Theme.of(context).colorScheme.outline,
+        )
+      ],
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

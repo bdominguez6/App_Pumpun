@@ -5,8 +5,8 @@ class Author {
   Author({this.id, required this.name});
 
   Author.fromMap(Map<String, dynamic> item)
-      : id = item['id'],
-        name = item['name'];
+      : id = item['id'] as int,
+        name = item['name'] as String;
 
   Map<String, Object?> toMap() {
     return {

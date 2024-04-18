@@ -6,19 +6,19 @@ import 'package:sqflite/sqflite.dart';
 
 class BookListService {
   Future<int> createBookList(BookList bookList) async {
-    final Database database = await SQLiteService().initializeDB();
+    final Database database = await SQLiteService().database;
     //insert the data and put the id to the booklist class
     return await database.insert('booklist', bookList.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   Future<void> deleteBookList(int id) async {
-    final Database database = await SQLiteService().initializeDB();
+    final Database database = await SQLiteService().database;
     await database.delete('booklist', where: 'id=?', whereArgs: [id]);
   }
 
   Future<List<BookList>> getAllBookLists() async {
-    final Database database = await SQLiteService().initializeDB();
+    final Database database = await SQLiteService().database;
     final List<Map<String, dynamic>> bookListMaps =
         await database.query('book');
     List<BookList> bookLists =
@@ -32,7 +32,7 @@ class BookListService {
   }
 
   Future<BookList> getBookListById(int id) async {
-    final Database database = await SQLiteService().initializeDB();
+    final Database database = await SQLiteService().database;
     final rows =
         await database.query('booklist', where: 'id=?', whereArgs: [id]);
 

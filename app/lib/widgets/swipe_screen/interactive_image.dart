@@ -30,7 +30,6 @@ class InteractiveImage extends StatelessWidget {
             List<Book> allBooks = [];
             for (var book in snapshot.data!) {
               allBooks.add(book);
-              print(book);
             }
             return Scaffold(
               body: Expanded(

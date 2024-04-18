@@ -27,14 +27,14 @@ class Book {
 
   //constructor with maps from the database
   Book.fromMap(Map<String, dynamic> item)
-      : id = item['id'],
-        title = item['title'],
-        cover = item['cover'],
-        description = item['description'],
+      : id = item['id'] as int,
+        title = item['title'] as String,
+        cover = item['cover'] as String,
+        description = item['description'] as String,
         amazonLink = item['amazonLink'] ?? '',
         authorList = [],
         genreList = [],
-        record = Record.values[item['record']];
+        record = Record.values.byName(item['record']);
 
   Map<String, Object?> toMap(bool update) {
     return {
@@ -42,7 +42,7 @@ class Book {
       'cover': cover,
       'description': description,
       'amazonLink': amazonLink,
-      'record': record.toString()
+      'record': record.name,
     };
   }
 

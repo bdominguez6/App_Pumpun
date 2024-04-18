@@ -11,10 +11,10 @@ class BookList {
 
   //constructor with maps from the database
   BookList.fromMap(Map<String, dynamic> item)
-      : this.id = item['id'],
-        this.title = item['title'],
-        this.subtitle = item['subtitle'],
-        this.color = Color(item['color']),
+      : this.id = item['id'] as int,
+        this.title = item['title'] as String,
+        this.subtitle = item['subtitle'] as String,
+        this.color = Color(item['color'] as int),
         this.books = [];
 
   //send objects with map form to the data base

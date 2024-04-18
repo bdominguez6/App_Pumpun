@@ -20,7 +20,7 @@ initDummyData() async {
 
 //ADD GENRES TO THE DB
   for (int index = 0; index < Genre.values.length; index++) {
-    GenreService().createGenre(Genre.values[index]);
+    await GenreService().createGenre(Genre.values[index]);
   }
 
   //default lists (records, wishlist and read)
@@ -45,9 +45,9 @@ initDummyData() async {
   bookList2.id = await BookListService().createBookList(bookList2);
 
   //add some books and put genres, authors abd lists
-  for (int index = 0; index < 20; index++) {
+  for (int index = 0; index < 10; index++) {
     Book book = Book(
-        title: 'Libro ${index}',
+        title: 'Libro 1.$index',
         cover: "assets/images/covers/harry_potter1_cover.jpg",
         record: Record.none,
         description:
@@ -55,18 +55,19 @@ initDummyData() async {
         authorList: [],
         genreList: []);
     book.id = await BookService().createBook(book);
-    BookService().createBook(book);
-    AuthorService().addAuthorToBook(author1, book);
-    AuthorService().addAuthorToBook(author2, book);
-    AuthorService().addAuthorToBook(author3, book);
-    GenreService().addGenreToBook(Genre.romance, book);
-    GenreService().addGenreToBook(Genre.scifi, book);
-    BookService().addBookToList(book, bookList1);
-    print('libro numero ${book.id} anhadido');
+    await BookService().createBook(book);
+    await AuthorService().addAuthorToBook(author1, book);
+    await AuthorService().addAuthorToBook(author2, book);
+    await AuthorService().addAuthorToBook(author3, book);
+    await GenreService().addGenreToBook(Genre.romance, book);
+    await GenreService().addGenreToBook(Genre.scifi, book);
+    await BookService().addBookToList(book, bookList1);
+
+    //print('libro  numero 1.${book.id} anhadido');
   }
-  for (int index = 0; index < 20; index++) {
+  for (int index = 0; index < 10; index++) {
     Book book = Book(
-        title: 'Libro 2.${index}',
+        title: 'Libro 2.$index',
         cover: "assets/images/covers/portada1.jpg",
         record: Record.none,
         description:
@@ -74,26 +75,27 @@ initDummyData() async {
         authorList: [],
         genreList: []);
     book.id = await BookService().createBook(book);
-    BookService().createBook(book);
-    AuthorService().addAuthorToBook(author2, book);
-    GenreService().addGenreToBook(Genre.romance, book);
-    GenreService().addGenreToBook(Genre.scifi, book);
-    print('libro numero ${book.id} anhadido');
+    await BookService().createBook(book);
+    await AuthorService().addAuthorToBook(author2, book);
+    await GenreService().addGenreToBook(Genre.romance, book);
+    await GenreService().addGenreToBook(Genre.scifi, book);
   }
-  for (int index = 0; index < 20; index++) {
+  for (int index = 0; index < 10; index++) {
     Book book = Book(
-        title: 'Libro 3.${index}',
-        cover: "assets/images/covers/portada2.jpg",
+        title: 'Libro 3.$index',
+        cover: "assets/images/covers/portada2.jpeg",
         record: Record.none,
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in quam mollis, aliquet quam in, cursus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc viverra aliquet sapien nec eleifend. Nunc euismod a lorem non posuere. Etiam molestie imperdiet ornare. Suspendisse a sem eget eros commodo pellentesque quis maximus tortor. Maecenas iaculis vestibulum magna, at malesuada elit interdum id. Aliquam ac ante erat. Mauris facilisis elementum cursus. Vivamus hendrerit mauris a magna mollis auctor. Nulla auctor consequat mi in pulvinar. Maecenas at urna at neque.",
         authorList: [],
         genreList: []);
     book.id = await BookService().createBook(book);
-    AuthorService().addAuthorToBook(author1, book);
-    AuthorService().addAuthorToBook(author3, book);
-    GenreService().addGenreToBook(Genre.scifi, book);
-    BookService().addBookToList(book, bookList2);
-    print('libro numero ${book.id} anhadido');
+
+    await AuthorService().addAuthorToBook(author1, book);
+    await AuthorService().addAuthorToBook(author3, book);
+    await GenreService().addGenreToBook(Genre.scifi, book);
+    await BookService().addBookToList(book, bookList2);
+
+    //print('libro numero 3.${book.id} anhadido');
   }
 }

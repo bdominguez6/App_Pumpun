@@ -5,10 +5,10 @@ import 'package:app/models/enums.dart';
 import 'package:sqflite/sqflite.dart';
 
 class AuthorService {
-  Future<void> createAuthor(Author author) async {
+  Future<int> createAuthor(Author author) async {
     final Database database = await SQLiteService().initializeDB();
     //insert the data and put the id to the author class
-    author.id = await database.insert('author', author.toMap(),
+    return await database.insert('author', author.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
@@ -18,7 +18,7 @@ class AuthorService {
     await database.insert(
         'bookauthor', {'author_id': author.id, 'book_id': book.id},
         conflictAlgorithm: ConflictAlgorithm.replace);
-    book.authorList?.add(author.name);
+    book.authorList.add(author.name);
   }
 
   //get all the authors a book has

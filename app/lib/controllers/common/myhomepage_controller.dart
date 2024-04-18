@@ -40,10 +40,8 @@ class _MyHomePageControllerState extends State<MyHomePageController> {
       //init shared preferences
       SharedPreferencesController().loadUser();
       //init db
-      initData();
+      initDummyData();
       //add first data (books, listbooks, put that books on the list, add genres and authors to those books)
-
-      ;
     });
   }
 

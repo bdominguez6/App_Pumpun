@@ -42,11 +42,11 @@ class DummyBryan {
     // Method which fill booklist records on user class
     for (int index = 0; index < 8; index++) {
       Configuration.user.defaultBookLists[0].books.insert(0, book1);
-      Configuration.user.records!.books.insert(0, book1);
-      Configuration.user.records!.books.insert(0, book2);
-      Configuration.user.records!.books.insert(0, book3);
+      Configuration.user.records.books.insert(0, book1);
+      Configuration.user.records.books.insert(0, book2);
+      Configuration.user.records.books.insert(0, book3);
     }
     Configuration.user.defaultBookLists[0].books.insert(0, book2);
-    Configuration.user.records!.books.insert(0, book2);
+    Configuration.user.records.books.insert(0, book2);
   }
 }

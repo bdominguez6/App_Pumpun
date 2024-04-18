@@ -8,10 +8,10 @@ import 'package:app/models/enums.dart';
 import 'package:sqflite/sqflite.dart';
 
 class BookService {
-  Future<void> createBook(Book book) async {
+  Future<int> createBook(Book book) async {
     final Database database = await SQLiteService().initializeDB();
     //insert the data and put the id to the book class
-    book.id = await database.insert('book', book.toMap(false),
+    return await database.insert('book', book.toMap(false),
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
@@ -26,23 +26,25 @@ class BookService {
     final List<Map<String, dynamic>> bookMaps = await database
         .query('bookOnList', where: 'booklist_id=?', whereArgs: [id]);
 
-    return bookMaps
-        .map((e) => Book.fromMap(
-            e,
-            GenreService().getGenresByBookId(e['id']) as List<Genre>,
-            AuthorService().getAuthorsByBookId(e['id']) as List<String>))
-        .toList();
+    List<Book> books = bookMaps.map((e) => Book.fromMap(e)).toList();
+
+    for (Book book in books) {
+      book.genreList = await GenreService().getGenresByBookId(book.id);
+      book.authorList = await AuthorService().getAuthorsByBookId(book.id);
+    }
+    return books;
   }
 
   Future<List<Book>> getAllBooks() async {
     final Database database = await SQLiteService().initializeDB();
     final List<Map<String, dynamic>> bookMaps = await database.query('book');
-    return bookMaps
-        .map((e) => Book.fromMap(
-            e,
-            GenreService().getGenresByBookId(e['id']) as List<Genre>,
-            AuthorService().getAuthorsByBookId(e['id']) as List<String>))
-        .toList();
+    List<Book> books = bookMaps.map((e) => Book.fromMap(e)).toList();
+
+    for (Book book in books) {
+      book.genreList = await GenreService().getGenresByBookId(book.id);
+      book.authorList = await AuthorService().getAuthorsByBookId(book.id);
+    }
+    return books;
   }
 
   Future<void> addBookToList(Book book, BookList bookList) async {

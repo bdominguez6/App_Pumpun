@@ -43,7 +43,6 @@ class SwipeScreen extends StatelessWidget {
           // Image container
           Expanded(
               child: InteractiveImage(
-            book: dummy.book1,
             controller: cardSwiperController,
           )),
 

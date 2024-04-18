@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'constants/screen_constants.dart';
 
 void main() {
-  SharedPreferencesController().loadUser();
   DummyBryan();
   runApp(
     MaterialApp(

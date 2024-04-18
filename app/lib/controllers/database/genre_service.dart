@@ -17,7 +17,7 @@ class GenreService {
     await database.insert(
         'bookgenre', {'genre_id': genre.index, 'book_id': book.id},
         conflictAlgorithm: ConflictAlgorithm.replace);
-    book.genreList?.add(genre);
+    book.genreList.add(genre);
   }
 
   //get all the genres of a book

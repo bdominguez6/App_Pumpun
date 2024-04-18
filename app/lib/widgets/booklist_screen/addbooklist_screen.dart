@@ -27,8 +27,8 @@ class _AddBooklistScreen extends State<AddBooklistScreen> {
       // Save the form data
       _formKey.currentState!.save();
       //TOFIX: put here the user list of lists instead of my sample
-      widget.onAddBooklist(
-          BookList(title: _title, subtitle: _subtitle, color: _color));
+      widget.onAddBooklist(BookList(
+          title: _title, subtitle: _subtitle, color: _color, books: []));
       Navigator.pop(context);
     }
   }

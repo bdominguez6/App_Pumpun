@@ -1,8 +1,21 @@
-// enum AppTheme {
-//   light,
-//   dark,
-//   prefered,
-// }
+import 'package:app/constants/theme_constants.dart';
+
+enum AppTheme {
+  red(ThemeConstants.changeToRed),
+  orange(ThemeConstants.changeToOrange),
+  yellow(ThemeConstants.changeToYellow),
+  lime(ThemeConstants.changeToLime),
+  green(ThemeConstants.changeToGreen),
+  teal(ThemeConstants.changeToTeal),
+  aqua(ThemeConstants.changeToAqua),
+  lightBlue(ThemeConstants.changeToLightBlue),
+  blue(ThemeConstants.changeToBlue),
+  lavender(ThemeConstants.changeToLavender),
+  violet(ThemeConstants.changeToViolet),
+  pink(ThemeConstants.changeToPink);
+  final Function() value;
+  const AppTheme(this.value);
+}
 
 enum Record {
   none,

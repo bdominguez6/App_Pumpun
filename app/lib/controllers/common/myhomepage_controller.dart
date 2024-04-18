@@ -9,6 +9,10 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 /// This class creates and uses bottomNavigationBar, it also controls switching between different screens.
 class MyHomePageController extends StatefulWidget {
+  const MyHomePageController({required this.onChangeSettings});
+
+  final void Function(BuildContext context) onChangeSettings;
+
   @override
   _MyHomePageControllerState createState() => _MyHomePageControllerState();
 }
@@ -16,12 +20,7 @@ class MyHomePageController extends StatefulWidget {
 class _MyHomePageControllerState extends State<MyHomePageController> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [
-    SwipeScreen(),
-    SearchScreen(),
-    BookListsScreen(),
-    ProfileScreen(),
-  ];
+  List<Widget> _screens = [];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -32,9 +31,12 @@ class _MyHomePageControllerState extends State<MyHomePageController> {
   @override
   void initState() {
     super.initState();
-    setState(() {
-      SharedPreferencesController().loadUser();
-    });
+    _screens = [
+      SwipeScreen(),
+      SearchScreen(),
+      BookListsScreen(),
+      ProfileScreen(onChangeSettings: widget.onChangeSettings)
+    ];
   }
 
   @override

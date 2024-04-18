@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 
 class DarkTheme{
-  Color tertiary = Colors.amber.shade700;
 
-  Color primary = const Color.fromARGB(255, 15, 10, 5);
-  Color secondary = const Color.fromARGB(255, 55, 50, 45);
-  Color outline = const Color.fromARGB(255, 255, 250, 245);
-  Color surface = const Color.fromARGB(255, 195, 190, 185);
-  Color background = const Color.fromARGB(255, 20, 15, 10);
-
-  // Color primary = Colors.black;
-  // Color secondary = const Color.fromARGB(255, 55, 55, 55);
-  // Color outline = Colors.white;
-  // Color surface = const Color.fromARGB(255, 190, 190, 190);
-  // Color background = const Color.fromARGB(255, 20, 20, 20);
+  static Color primary = const Color.fromARGB(255, 15, 7, 0);
+  static Color secondary = const Color.fromARGB(255, 55, 35, 15);
+  static Color tertiary = const Color.fromARGB(255, 200, 100, 50);
+  static Color outline = const Color.fromARGB(255, 255, 215, 175);
+  static Color surface = const Color.fromARGB(255, 200, 170, 140);
+  static Color background = const Color.fromARGB(255, 20, 10, 0);
 
   ThemeData get materialTheme {
     return ThemeData(
@@ -27,11 +21,6 @@ class DarkTheme{
         outline: outline,
         surface: surface,
         background: background,
-      ),
-      textTheme: TextTheme().apply(
-        bodyColor: outline,
-        displayColor: outline,
-        decorationColor: outline,
       ),
       inputDecorationTheme: InputDecorationTheme(
         focusedBorder: UnderlineInputBorder(

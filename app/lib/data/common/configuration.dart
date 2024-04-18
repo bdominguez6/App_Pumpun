@@ -10,5 +10,5 @@ class Configuration {
     email: 'mariomanuel@pumpunhost.com',
     image: 'assets/images/icons/icon_512px.png',
   );
-  // static AppTheme theme = AppTheme.dark;
+  // static AppTheme theme = AppTheme.orange;
 }

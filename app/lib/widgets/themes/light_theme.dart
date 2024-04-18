@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 
 class LightTheme {
-  Color tertiary = Colors.amber.shade700;
 
-  Color primary = const Color.fromARGB(255, 255, 250, 245);
-  Color secondary = const Color.fromARGB(255, 225, 220, 215);
-  Color outline = const Color.fromARGB(255, 30, 20, 10);
-  Color surface = const Color.fromARGB(255, 70, 65, 60);
-  Color background = const Color.fromARGB(255, 240, 235, 230);
-
-  // Color primary = Colors.white;
-  // Color secondary = const Color.fromARGB(255, 190, 190, 190);
-  // Color outline = Colors.black;
-  // Color surface = const Color.fromARGB(255, 65, 65, 65);
-  // Color background = const Color.fromARGB(255, 235, 235, 235);
+  static Color primary = const Color.fromARGB(255, 255, 240, 225);
+  static Color secondary = const Color.fromARGB(255, 235, 215, 195);
+  static Color tertiary = const Color.fromARGB(255, 200, 100, 50);
+  static Color outline = const Color.fromARGB(255, 70, 35, 0);
+  static Color surface = const Color.fromARGB(255, 70, 60, 50);
+  static Color background = const Color.fromARGB(255, 245, 230, 215);
 
   ThemeData get materialTheme {
     return ThemeData(

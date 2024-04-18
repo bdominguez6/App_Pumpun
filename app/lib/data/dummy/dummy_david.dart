@@ -39,12 +39,16 @@ class DummyDavid {
     );
 
     // Method to fill the book lists
-    userDummy!.createdBookLists.add(
-        BookList(title: 'Prueba1', subtitle: 'probando 1', color: Colors.blue));
+    userDummy!.createdBookLists.add(BookList(
+        title: 'Prueba1',
+        subtitle: 'probando 1',
+        color: Colors.blue,
+        books: []));
     userDummy!.createdBookLists.add(BookList(
         title: 'Prueba2',
         subtitle: 'probando 2',
-        color: const Color.fromARGB(255, 175, 186, 196)));
+        color: const Color.fromARGB(255, 175, 186, 196),
+        books: []));
     userDummy!.createdBookLists[0].books.insert(0, book1);
     userDummy!.createdBookLists[0].books.insert(0, book1);
     for (int index = 0; index < 4; index++) {

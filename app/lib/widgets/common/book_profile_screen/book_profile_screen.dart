@@ -22,7 +22,7 @@ class BookProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> genreNames = _trimGenres(genreList: book.genreList);
+    List<String> genreNames = _trimGenres(genreList: book.genreList!);
 
     return Scaffold(
       appBar: GoBackAppBar(title: 'Book Profile'),
@@ -52,6 +52,10 @@ class BookProfileScreen extends StatelessWidget {
                   fontSize: ScreenConstants.width * 0.05,
                   color: Theme.of(context).colorScheme.outline,
                 ),
+
+                book.authorList!.join(", "),
+                style: TextStyle(fontSize: ScreenConstants.width * 0.05,
+                       color: Theme.of(context).colorScheme.outline,),
               ),
             ),
             SizedBox(height: ScreenConstants.height * 0.02),
@@ -63,7 +67,8 @@ class BookProfileScreen extends StatelessWidget {
                   (name) => GenreCard(genre: name),
                 ),
                 Icon(
-                  IconData(book.icon, fontFamily: 'MaterialIcons'),
+                  IconData(recordIcons[book.record]!,
+                      fontFamily: 'MaterialIcons'),
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
               ],

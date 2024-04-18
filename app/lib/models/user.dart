@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'booklist.dart';
 
+//unused class as there's only one user
 class User {
   User({
     required this.username,
@@ -21,15 +22,20 @@ class User {
     BookList(
         title: "Wishlist books",
         subtitle: "Books that you want to read.",
-        color: Colors.green),
+        color: Colors.green,
+        books: []),
     BookList(
         title: "Read books",
         subtitle: "Books that you already read.",
-        color: Colors.red),
+        color: Colors.red,
+        books: []),
   ];
 
   BookList records = BookList(
-      title: "Records", subtitle: "records", color: Colors.transparent);
+      title: "Records",
+      subtitle: "records",
+      color: Colors.transparent,
+      books: []);
 
   List<BookList> createdBookLists = [];
 

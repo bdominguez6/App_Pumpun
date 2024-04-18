@@ -11,7 +11,6 @@ import 'package:flutter/services.dart';
 import 'constants/screen_constants.dart';
 
 void main() {
-  SharedPreferencesController().loadUser();
   DummyBryan();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([

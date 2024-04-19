@@ -9,6 +9,7 @@ class SettingsController {
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
   final nameController = TextEditingController();
+  static AppTheme theme = Configuration.theme;
 
   bool changeSettings(BuildContext context) {
     bool error = false;
@@ -48,7 +49,7 @@ class SettingsController {
         );
       }
     }
-    // Configuration.theme =
+    Configuration.theme = theme;
 
     return error;
   }

@@ -1,8 +1,6 @@
 import 'package:app/constants/screen_constants.dart';
-import 'package:app/constants/theme_constants.dart';
 import 'package:app/controllers/settings_controller.dart';
 import 'package:app/data/common/configuration.dart';
-import 'package:app/data/dummy/dummy_bryan.dart';
 import 'package:app/widgets/common/main_button_appbar.dart';
 import 'package:app/widgets/profile_screen/empty_list_message.dart';
 import 'package:app/widgets/profile_screen/records_screen.dart';
@@ -89,57 +87,59 @@ class _ProfileScreenState extends State<ProfileScreen> {
         buttonIcon: Icon(Icons.settings),
         buttonMethod: () => _openSettingsScreen(context),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: ScreenConstants.height * 0.02),
-          UserData(
-            width: ScreenConstants.width,
-            height: ScreenConstants.height,
-            user: Configuration.user,
-          ),
-          SizedBox(height: ScreenConstants.height * 0.02),
-          Container(
-            width: ScreenConstants.width * 0.95,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Last Liked',
-                  style: TextStyle(
-                    fontSize: ScreenConstants.height * 0.04,
-                    color: Theme.of(context).colorScheme.outline,
-                  ),
-                ),
-                TextButton(
-                  style: ButtonStyle(
-                    foregroundColor: MaterialStatePropertyAll<Color>(
-                        Theme.of(context).colorScheme.tertiary),
-                  ),
-                  onPressed: () {
-                    _openRecordsScreen(context);
-                  },
-                  child: Text(
-                    'More...',
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: ScreenConstants.height * 0.02),
+            UserData(
+              width: ScreenConstants.width,
+              height: ScreenConstants.height,
+              user: Configuration.user,
+            ),
+            SizedBox(height: ScreenConstants.height * 0.02),
+            Container(
+              width: ScreenConstants.width * 0.95,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Last Liked',
                     style: TextStyle(
-                      fontSize: ScreenConstants.height * 0.02,
+                      fontSize: ScreenConstants.height * 0.04,
+                      color: Theme.of(context).colorScheme.outline,
                     ),
                   ),
-                ),
-              ],
+                  TextButton(
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStatePropertyAll<Color>(
+                          Theme.of(context).colorScheme.tertiary),
+                    ),
+                    onPressed: () {
+                      _openRecordsScreen(context);
+                    },
+                    child: Text(
+                      'More...',
+                      style: TextStyle(
+                        fontSize: ScreenConstants.height * 0.02,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: ScreenConstants.height * 0.02),
-          if (likedBooks.isNotEmpty)
-            ScrollableBookList(
-              width: ScreenConstants.width * 0.95,
-              height: ScreenConstants.height * 0.4,
-              books: likedBooks,
-            ),
-          if (likedBooks.isEmpty)
-            EmptyListMessage(
-                width: ScreenConstants.width,
-                height: ScreenConstants.height * 0.4),
-        ],
+            SizedBox(height: ScreenConstants.height * 0.02),
+            if (likedBooks.isNotEmpty)
+              ScrollableBookList(
+                width: ScreenConstants.width * 0.95,
+                height: ScreenConstants.height * 0.4,
+                books: likedBooks,
+              ),
+            if (likedBooks.isEmpty)
+              EmptyListMessage(
+                  width: ScreenConstants.width,
+                  height: ScreenConstants.height * 0.4),
+          ],
+        ),
       ),
     );
   }

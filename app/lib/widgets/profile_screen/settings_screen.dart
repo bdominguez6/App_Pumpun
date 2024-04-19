@@ -15,11 +15,53 @@ class SettingsScreen extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return _SettingsScreenState();
+    return SettingsScreenState();
   }
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class SettingsScreenState extends State<SettingsScreen> {
+
+  // TODO: AAAAAA
+  static List<CustomRadio> radios = [];
+
+  void changeTheme(int id) {
+    setState(() {
+      for (CustomRadio radio in radios) {
+        if (radio.selected == true) radio.selected = false;
+        if (radio.id == id) radio.selected = true;
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    radios.add(
+      CustomRadio(
+        id: 0,
+        color: Colors.yellow,
+        selected: false,
+        onTap: changeTheme,
+      ),
+    );
+    radios.add(
+      CustomRadio(
+        id: 1,
+        color: Colors.blue,
+        selected: true,
+        onTap: changeTheme,
+      ),
+    );
+    radios.add(
+      CustomRadio(
+        id: 2,
+        color: Colors.red,
+        selected: false,
+        onTap: changeTheme,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

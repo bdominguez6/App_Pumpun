@@ -22,9 +22,10 @@ import '../../models/book.dart';
 /// [TextButton] para acceder al historial y un [ScrollableBookList] con los últimos
 /// libros que le han gustado.
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({required this.onChangeSettings});
+  ProfileScreen({required this.onChangeTheme});
 
-  final void Function(BuildContext context) onChangeSettings;
+  final void Function() onChangeTheme;
+  final SettingsController settingsController = SettingsController();
 
   @override
   State<ProfileScreen> createState() {
@@ -50,10 +51,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
       MaterialPageRoute(
         builder: (context) => SettingsScreen(
           controller: settingsController,
-          onChangeSettings: widget.onChangeSettings,
+          onChangeSettings: changeSettings,
         ),
       ),
     );
+  }
+
+  void changeSettings(BuildContext context){
+    bool error = false;
+    setState(() {
+      error = settingsController.changeSettings(context);
+      if (!error) {
+        SharedPreferencesController().saveUser();
+      }
+    });
+    widget.onChangeTheme();
+    if (!error) {
+      Navigator.pop(context);
+    }
   }
 
   @override

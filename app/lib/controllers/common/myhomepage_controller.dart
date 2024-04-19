@@ -9,9 +9,9 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 /// This class creates and uses bottomNavigationBar, it also controls switching between different screens.
 class MyHomePageController extends StatefulWidget {
-  const MyHomePageController({required this.onChangeSettings});
+  const MyHomePageController({required this.onChangeTheme});
 
-  final void Function(BuildContext context) onChangeSettings;
+  final void Function() onChangeTheme;
 
   @override
   _MyHomePageControllerState createState() => _MyHomePageControllerState();
@@ -35,7 +35,7 @@ class _MyHomePageControllerState extends State<MyHomePageController> {
       SwipeScreen(),
       SearchScreen(),
       BookListsScreen(),
-      ProfileScreen(onChangeSettings: widget.onChangeSettings)
+      ProfileScreen(onChangeTheme: widget.onChangeTheme)
     ];
   }
 

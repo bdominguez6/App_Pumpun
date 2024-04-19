@@ -1,5 +1,4 @@
 import 'package:app/controllers/settings_controller.dart';
-import 'package:app/models/enums.dart';
 import 'package:app/widgets/profile_screen/theme_settings.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +6,7 @@ import '../../constants/screen_constants.dart';
 import '../../data/common/configuration.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen(
+  SettingsScreen(
       {super.key, required this.controller, required this.onChangeSettings});
 
   final void Function(BuildContext context) onChangeSettings;
@@ -20,48 +19,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class SettingsScreenState extends State<SettingsScreen> {
-
-  // TODO: AAAAAA
-  static List<CustomRadio> radios = [];
-
-  void changeTheme(int id) {
-    setState(() {
-      for (CustomRadio radio in radios) {
-        if (radio.selected == true) radio.selected = false;
-        if (radio.id == id) radio.selected = true;
-      }
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    radios.add(
-      CustomRadio(
-        id: 0,
-        color: Colors.yellow,
-        selected: false,
-        onTap: changeTheme,
-      ),
-    );
-    radios.add(
-      CustomRadio(
-        id: 1,
-        color: Colors.blue,
-        selected: true,
-        onTap: changeTheme,
-      ),
-    );
-    radios.add(
-      CustomRadio(
-        id: 2,
-        color: Colors.red,
-        selected: false,
-        onTap: changeTheme,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,7 +151,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ),
               ),
-              SizedBox(height: ScreenConstants.height * 0.02),
+              SizedBox(height: ScreenConstants.height * 0.04),
               Text(
                 'Themes',
                 style: TextStyle(
@@ -202,7 +159,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
               ),
-              SizedBox(height: ScreenConstants.height * 0.01),
+              SizedBox(height: ScreenConstants.height * 0.008),
               ThemeSettings(),
             ],
           ),

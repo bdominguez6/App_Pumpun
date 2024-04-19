@@ -1,14 +1,11 @@
-import 'package:app/constants/theme_constants.dart';
 import 'package:app/controllers/common/myhomepage_controller.dart';
 import 'package:app/controllers/common/shared_preferences_controller.dart';
-import 'package:app/controllers/settings_controller.dart';
 import 'package:app/data/dummy/dummy_bryan.dart';
 import 'package:app/widgets/themes/dark_theme.dart';
 import 'package:app/widgets/themes/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'constants/screen_constants.dart';
+import 'data/common/configuration.dart';
 
 void main() {
   DummyBryan();
@@ -28,31 +25,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  // void changeTheme() {
-  //   bool error = false;
-  //   setState(() {
-  //     error = widget.settingsController.changeSettings(context);
-  //     if (!error) {
-  //       SharedPreferencesController().saveUser();
-  //     }
-  //     ThemeConstants.changeToAqua();
-  //   });
-  //   if (!error) {
-  //     Navigator.pop(context);
-  //   }
-  // }
-
   void changeTheme() {
     setState(() {
-      ThemeConstants.changeToAqua();
+      Configuration.theme.value();
     });
   }
 
   @override
   void initState() {
-    super.initState();
     setState(() {
-      SharedPreferencesController().loadUser();
+
+      SharedPreferencesController().loadUser().then((value) => changeTheme());
+
     });
   }
 

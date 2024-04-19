@@ -19,7 +19,6 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  SettingsController settingsController = SettingsController();
 
   @override
   State<MyApp> createState() {
@@ -28,18 +27,25 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  void changeSettings(BuildContext context) {
-    bool error = false;
+
+  // void changeTheme() {
+  //   bool error = false;
+  //   setState(() {
+  //     error = widget.settingsController.changeSettings(context);
+  //     if (!error) {
+  //       SharedPreferencesController().saveUser();
+  //     }
+  //     ThemeConstants.changeToAqua();
+  //   });
+  //   if (!error) {
+  //     Navigator.pop(context);
+  //   }
+  // }
+
+  void changeTheme() {
     setState(() {
-      error = widget.settingsController.changeSettings(context);
-      if (!error) {
-        SharedPreferencesController().saveUser();
-      }
       ThemeConstants.changeToAqua();
     });
-    if (!error) {
-      Navigator.pop(context);
-    }
   }
 
   @override
@@ -58,7 +64,7 @@ class _MyAppState extends State<MyApp> {
       theme: LightTheme().materialTheme,
       darkTheme: DarkTheme().materialTheme,
       debugShowCheckedModeBanner: false,
-      home: MyHomePageController(onChangeSettings: changeSettings,),
+      home: MyHomePageController(onChangeTheme: changeTheme,),
     );
   }
 }

@@ -1,9 +1,16 @@
 import 'package:app/constants/screen_constants.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:app/widgets/profile_screen/settings_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class ThemeSettings extends StatelessWidget {
+class ThemeSettings extends StatefulWidget {
+  @override
+  State<ThemeSettings> createState() {
+    return _ThemeSettingsState();
+  }
+}
+
+class _ThemeSettingsState extends State<ThemeSettings> {
+
   List<Color> colors = [
     const Color.fromARGB(255, 255, 0, 0),
     const Color.fromARGB(255, 200, 100, 50),
@@ -22,39 +29,105 @@ class ThemeSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
       width: ScreenConstants.width * 0.9,
       height: ScreenConstants.width * 0.675,
       child: Column(
         children: [
           Container(
-            color: Colors.red,
             height: ScreenConstants.width * 0.225,
             child: Row(
               children: [
-                Text('a'),
+                SettingsScreenState.radios[0],
               ],
             ),
           ),
           Container(
-            color: Colors.yellow,
             height: ScreenConstants.width * 0.225,
             child: Row(
               children: [
-                Text('b'),
+                SettingsScreenState.radios[1],
               ],
             ),
           ),
           Container(
-            color: Colors.blue,
             height: ScreenConstants.width * 0.225,
             child: Row(
               children: [
-                Text('c'),
+                SettingsScreenState.radios[2],
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomRadio extends StatefulWidget {
+  CustomRadio({
+    super.key,
+    required this.id,
+    required this.color,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final int id;
+  final Color color;
+  late Color selectedColor;
+  bool selected;
+  void Function(int id) onTap;
+
+  @override
+  State<StatefulWidget> createState() {
+    return _CustomRadioState(
+      id: id,
+      color: color,
+      selected: selected,
+      onTap: onTap,
+    );
+  }
+}
+
+class _CustomRadioState extends State<CustomRadio> {
+  _CustomRadioState({
+    required this.id,
+    required this.color,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final int id;
+  final Color color;
+  late Color selectedColor;
+  bool selected;
+  void Function(int id) onTap;
+
+  Widget build(BuildContext context) {
+    selectedColor =
+        selected ? Theme.of(context).colorScheme.outline : Colors.transparent;
+
+    return InkWell(
+      onTap: () {
+        onTap(id);
+      },
+      child: Container(
+        width: ScreenConstants.width * 0.225,
+        height: ScreenConstants.width * 0.225,
+        child: Center(
+          child: Container(
+            width: ScreenConstants.width * 0.2,
+            height: ScreenConstants.width * 0.2,
+            color: selectedColor,
+            child: Center(
+              child: Container(
+                width: ScreenConstants.width * 0.18,
+                height: ScreenConstants.width * 0.18,
+                color: color,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
